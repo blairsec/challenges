@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2019'
+name: 'weeb_hunting'
+files:
+  - src: 'weeb_hunting'
+    dest: 'weeb_hunting'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+  - src: 'weeb_hunting.c'
+    dest: 'weeb_hunting.c'
+    mode: 444
+xinetd:
+  port: 19310
+  server: 'weeb_hunting'

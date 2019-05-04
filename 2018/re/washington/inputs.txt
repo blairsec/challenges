@@ -1,0 +1,2 @@
+rails = 2
+flag = actf{some_people_build_fences_to_solve_ctfproblems}

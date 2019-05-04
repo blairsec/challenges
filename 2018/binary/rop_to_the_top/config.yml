@@ -1,0 +1,13 @@
+root: '/problems'
+competition: '2018'
+name: 'rop_to_the_top'
+files:
+  - src: 'rop_to_the_top32'
+    dest: 'rop_to_the_top32'
+    mode: 2555
+  - src: 'flag'
+    dest: 'flag'
+    mode: 440
+  - src: 'rop_to_the_top.c'
+    dest: 'rop_to_the_top.c'
+    mode: 444

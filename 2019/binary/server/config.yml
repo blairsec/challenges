@@ -1,0 +1,11 @@
+root: '/problems'
+competition: '2019'
+name: 'server'
+files:
+  - src: 'server'
+    dest: 'server'
+    mode: 500
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+run: '/problems/2019/server/server'

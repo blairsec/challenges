@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2019'
+name: 'one_bite'
+files:
+ - src: 'one_bite'
+   dest: 'one_bite'
+   mode: 2555

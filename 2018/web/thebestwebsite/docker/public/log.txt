@@ -1,0 +1,4 @@
+Sat Aug 10 2017 10:23:17 GMT-0400 (EDT) - Initial website
+Sat Aug 10 2017 14:54:07 GMT-0400 (EDT) - Database integration
+Sat Aug 11 2017 14:08:54 GMT-0400 (EDT) - Make some changes to the text
+Sat Aug 12 2017 18:01:08 GMT-0400 (EDT) - Add super secret flag to database

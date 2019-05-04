@@ -1,0 +1,2 @@
+mongod &
+sleep 3 && node index.js

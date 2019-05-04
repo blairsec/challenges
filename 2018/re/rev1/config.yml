@@ -1,0 +1,10 @@
+root: '/problems'
+competition: '2018'
+name: 'rev1'
+files:
+  - src: 'rev1_32'
+    dest: 'rev1'
+    mode: 2555
+  - src: 'flag'
+    dest: 'flag'
+    mode: 440

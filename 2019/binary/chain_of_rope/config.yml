@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2019'
+name: 'chain_of_rope'
+files:
+  - src: 'chain_of_rope'
+    dest: 'chain_of_rope'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+  - src: 'chain_of_rope.c'
+    dest: 'chain_of_rope.c'
+    mode: 444
+xinetd:
+  port: 19400
+  server: 'chain_of_rope'

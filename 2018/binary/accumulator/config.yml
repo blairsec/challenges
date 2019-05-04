@@ -1,0 +1,13 @@
+root: '/problems'
+competition: '2018'
+name: 'accumulator'
+files:
+  - src: 'accumulator64'
+    dest: 'accumulator'
+    mode: 2555
+  - src: 'flag'
+    dest: 'flag'
+    mode: 440
+  - src: 'accumulator.c'
+    dest: 'accumulator.c'
+    mode: 444

@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Application Access Page
+    body
+        h2
+            | Here's your first flag: actf{no_sql_doesn't_mean_no_vuln}
+            br
+            | Access granted, however suspicious activity detected. Please enter password for user
+            b()= username
+            | again, but there will be no database query.
+        form(method='post')
+            label Enter Password:
+            input(type='text', name='pass2')
+            br
+            input(type='submit')
+        h4(style="color:red;")=message
+        pre
+            | router.post('/site', verifyJwt, function (req, res) {
+            |     // req.user is assigned from verifyJwt
+            |     if (!req.user.authenticated || !req.body.pass2) {
+            |         res.send("bad");
+            |     }
+            | 
+            |     var query = {
+            |         username: req.user.name,
+            |     }
+            | 
+            |     var db = req.db;
+            |     db.collection('users').findOne(query, function (err, user) {
+            |         console.log(user);
+            |         if (!user){
+            |             res.render('access', {username:' \''+req.user.name+'\' ', message:"Only user 'admin' can log in with this form!"});
+            |         }
+            |         var pass = user.password;
+            |         var message = "";
+            |         if (pass === req.body.pass2){
+            |             res.render('final');
+            |         } else {
+            |             res.render('access', {username:' \''+req.user.name+'\' ', message:"Wrong LOL!"});
+            |         }
+            | 
+            |     });
+            | 
+            | });

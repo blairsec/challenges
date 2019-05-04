@@ -1,0 +1,10 @@
+root: '/problems'
+competition: '2018'
+name: 'cookie_jar'
+files:
+  - src: 'cookie'
+    dest: 'cookie'
+    mode: 500
+xinetd:
+  port: 18100
+  server: 'cookie'

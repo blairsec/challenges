@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Source Me 2</title>
+</head>
+<body>
+<h2>Welcome to the admin portal!</h2>
+Currently, only the user who can login is 'admin'.
+<br>
+Username:<input type="text" id = "uname"><br>
+Password:<input type="text" id = "password"><br>
+<button onclick="checkLogin()">Log In</button>
+<h4 style="color: red;" id="message"></h4>
+
+</body>
+<script src="./md5.js"></script>
+<script>
+    var checkLogin = function () {
+        var password = document.getElementById("password").value;
+        if (document.getElementById("uname").value != "admin"){
+            console.log(uname);
+            document.getElementById("message").innerHTML = "Only admin user allowed!";
+            return;
+        } else {
+            var passHash = md5(password);
+            if (passHash == "bdc87b9c894da5168059e00ebffb9077"){
+                window.location = "./login.php?user=admin&pass=" + password;
+            } else {
+                document.getElementById("message").innerHTML = "Incorrect Login";
+            }
+        }
+        return;
+    }
+</script>
+
+</html>

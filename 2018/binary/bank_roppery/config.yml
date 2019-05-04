@@ -1,0 +1,17 @@
+root: '/problems'
+competition: '2018'
+name: 'bank_roppery'
+immutable: false
+files:
+  - src: 'bank_roppery'
+    dest: 'bank_roppery'
+    mode: 2500
+  - src: 'flag'
+    dest: 'flag'
+    mode: 440
+  - src: 'bank_roppery.c'
+    dest: 'bank_roppery.c'
+    mode: 444
+xinetd:
+  port: 18400
+  server: bank_roppery

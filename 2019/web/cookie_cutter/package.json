@@ -1,0 +1,16 @@
+{
+  "name": "cookie_cutter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "4.16.4",
+    "jsonwebtoken": "^8.5.1"
+  }
+}

@@ -1,0 +1,20 @@
+html {
+	min-height: 100%;
+}
+body {
+	text-align:center;
+	font-family:monospace;
+	font-size:20px;
+	min-height:100%;
+	background:linear-gradient(darkgray,gray); /* gray is darker than darkgray*/
+}
+.rolled {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width:500px;
+	height:400px;
+	background-image:url("rick.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}

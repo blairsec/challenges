@@ -1,0 +1,1 @@
+flag = "actf{bad_padding_makes_u_very_sadding_even_if_u_add_words_just_for_the_sake_of_adding}"

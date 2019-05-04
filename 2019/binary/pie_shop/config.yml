@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2019'
+name: 'pie_shop'
+files:
+  - src: 'pie_shop'
+    dest: 'pie_shop'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+  - src: 'pie_shop.c'
+    dest: 'pie_shop.c'
+    mode: 444
+xinetd:
+  port: 19306
+  server: 'pie_shop'

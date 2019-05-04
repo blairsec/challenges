@@ -1,0 +1,10 @@
+root: '/problems'
+competition: '2018'
+name: 'number_guess'
+files:
+  - src: 'guess'
+    dest: 'guess'
+    mode: 500
+xinetd:
+  port: 18101
+  server: 'guess'

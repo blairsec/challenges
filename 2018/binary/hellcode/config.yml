@@ -1,0 +1,13 @@
+root: '/problems'
+competition: '2018'
+name: 'hellcode'
+files:
+  - src: 'hellcode'
+    dest: 'hellcode'
+    mode: 2555
+  - src: 'flag'
+    dest: 'flag'
+    mode: 440
+  - src: 'hellcode.c'
+    dest: 'hellcode.c'
+    mode: 444

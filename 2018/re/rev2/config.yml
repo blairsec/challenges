@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2018'
+name: 'rev2'
+files:
+  - src: 'rev2_32'
+    dest: 'rev2'
+    mode: 555

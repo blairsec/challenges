@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2018'
+name: 'run_me'
+files:
+  - src: 'run_me'
+    dest: 'run_me'
+    mode: 555

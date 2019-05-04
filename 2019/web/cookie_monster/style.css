@@ -1,0 +1,35 @@
+body {
+	background: linear-gradient(red,blue);
+	color:white;
+	font-size:20px;
+	font-family:monospace;
+	text-align:center;
+}
+input[name=url] {
+	border-radius:5px;
+	font-size:15px;
+	font-family:monospace;
+	width:80%;
+	border:2px dotted darkblue;
+	padding:2px;
+	background:linear-gradient(to right, yellow, green);
+}
+input[name=url]:focus {
+	background:linear-gradient(to left, yellow, green);
+}
+input[type=submit] {
+	border-radius:5px;
+	font-family:monospace;
+	font-size:40px;
+	font-weight:bold;
+	background:aquamarine;
+}
+input[type=submit]:hover {
+	background:mediumaquamarine;
+	position:relative;
+	top:1px;
+	left:1px;
+}
+a:hover {
+	display:none;
+}

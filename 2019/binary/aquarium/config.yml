@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2019'
+name: 'aquarium'
+files:
+  - src: 'aquarium'
+    dest: 'aquarium'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+  - src: 'aquarium.c'
+    dest: 'aquarium.c'
+    mode: 444
+xinetd:
+  port: 19305
+  server: 'aquarium'

@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>FileStorer</title>
+		<style>
+			body {
+				background-color: #fbffd1;
+				font-family: sans-serif;
+			}
+			#container {
+				width: 40em;
+				padding: 2em;
+				border-radius: 1em;
+				border: 4px solid black;
+				background-color: #d4ffd1;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		</style>
+	</head>
+	<body>
+	<div id="wrapper">
+		<div id="container">
+		<h1>Hello, {{ user.username }}</h1>
+		<ul class=files>
+		{% for file in user.files %}
+			<li><a href={{ "/files/"+file }}>{{ file }}</a></li>
+		{% else %}
+			<li>No files found.</li>
+		{% endfor %}
+		</ul>
+		<h1>Add file</h1>
+		Only 512kb will be downloaded per file.
+		<form method="POST">
+			<br>URL: <input type="text" name="url"><br><br>
+			Verify Password: <input type="password" name="password"><br><br>
+			<input type="hidden" name="username" value={{ user.username }}>
+			<input type="submit" value="Add File" name="action">
+		</form>
+		</div>
+	</div>
+	</body>
+</html>

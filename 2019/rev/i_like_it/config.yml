@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2019'
+name: 'i_like_it'
+files:
+ - src: 'i_like_it'
+   dest: 'i_like_it'
+   mode: 2555

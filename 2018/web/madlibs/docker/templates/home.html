@@ -1,0 +1,32 @@
+<!doctype html>
+<title>Angstrom Madlibs</title>
+
+<body>
+<h3>Welcome to the aCTF MadLib generator!</h3>
+Pick any of the MadLib stories from the dropdown below and get ready for some hilarious fun!
+
+<ul>
+{% for name in libs %}
+	<li>{{ name }}</li>
+{% endfor %}
+</ul>
+<select id="choice" onChange="document.location.href = '/form/'+document.getElementById('choice').value;">
+	<option value=""></option>
+	{% for name in libs %}
+		<option value="{{ name }}">{{ name }}</option>
+	{% endfor %}
+</select>
+{% if message %} 
+	<br><p style="color:red;">Server Message: {{ message }}</p>
+{% endif %}
+{% if fields and title %}
+	<br><br><h4>Form for {{ title }}</h4>
+	<form name="input" action="/result/{{ title }}" method = "POST">
+	{% for field in fields %}
+		{{ field }}: <input type="text" name="{{ loop.index }}"><br>
+	{% endfor %}
+		<input type="submit">
+	</form>
+{% endif %}
+</body>
+</html>

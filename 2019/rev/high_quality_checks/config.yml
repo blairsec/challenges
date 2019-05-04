@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2019'
+name: 'high_quality_checks'
+files:
+ - src: 'high_quality_checks'
+   dest: 'high_quality_checks'
+   mode: 2555

@@ -1,0 +1,10 @@
+root: '/problems'
+competition: '2019'
+name: 'intro_to_rev'
+files:
+  - src: 'intro_to_rev'
+    dest: 'intro_to_rev'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
