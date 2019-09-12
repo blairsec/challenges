@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+  <title>Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <h1>Chat</h1>
+    <ul>
+      {% if session.user %}
+        <li><span>{{ session.user }}</span>
+        <li><a href="{{ url_for('logout') }}">Log Out</a>
+      {% else %}
+        <li><a href="{{ url_for('register') }}">Register</a>
+        <li><a href="{{ url_for('login') }}">Log In</a>
+      {% endif %}
+    </ul>
+  </nav>
+  <section>
+    {% block content %}{% endblock %}
+  </section>
+</body>

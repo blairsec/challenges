@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Invites</h3>
+<ul id="invites">
+</ul>
+<h3>Account</h3>
+<ul>
+<li>Username: {{ session.user }}</li>
+<li>Social Security Number: {{ session.ssn }}</li>
+</ul>
+<script>
+var ws = new WebSocket(((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.host + "/ws")
+ws.onmessage = function(event) {
+	document.write(event.data)
+}
+</script>
+{% endblock %}
