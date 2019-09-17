@@ -40,6 +40,8 @@ body {
 	margin-bottom: 0;
 	line-height: 1.3em;
 	color: #505050;
+	overflow: auto;
+	
 }
 #messageBox {
 	border: 1px solid #bfbfbf;
