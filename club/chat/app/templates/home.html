@@ -17,7 +17,12 @@
 var ws = new WebSocket(((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.host + "/ws")
 ws.onmessage = function(event) {
 	var data = JSON.parse(event.data)
-	if (data.type === "message") {chatbox.innerHTML += data.message+"<br>"; chatbox.scrollTop = chatbox.scrollHeight}
+	if (data.type === "message") {
+		var message = document.createElement("span")
+		message.innerHTML = data.message+"<br>"
+		chatbox.appendChild(message)
+		chatbox.scrollTop = chatbox.scrollHeight
+	}
 	if (data.type === "invite") {invites.innerHTML += "<li id="+data.id+" onclick='acceptInvite(this)'>"+data.username}
 	if (data.type === "error") {error.innerHTML = data.message; error.style.display = "block"; inviteUser.value = ""}
 	if (data.type === "status") {
