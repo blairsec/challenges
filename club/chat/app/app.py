@@ -60,6 +60,8 @@ def socket(ws):
 			elif m["type"] == "message":
 				chat[1].send(json.dumps({"type": "message", "message": session["user"]+": "+m["message"]}))
 				chat[3].send(json.dumps({"type": "message", "message": session["user"]+": "+m["message"]}))
+			elif m["type"] == "ping":
+				chat[1].send(json.dumps({"type": "pong"}))
 		except Exception as e:
 			print(e)
 	for u in chats:

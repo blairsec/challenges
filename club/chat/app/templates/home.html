@@ -52,5 +52,8 @@ messageBox.addEventListener("keydown", function sendMessage(event) {
 		messageBox.value = ""
 	}
 })
+setInterval(function () {
+	ws.send(JSON.stringify({"type": "ping"}))
+}, 5000)
 </script>
 {% endblock %}
