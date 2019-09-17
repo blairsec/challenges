@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div id="chatbox"></div>
+<input type="text" id="messageBox" placeholder="Message">
 <h3>Invites</h3>
+<p id="error" style="display: none"></p>
+<input type="text" placeholder="Username" id="inviteUser"><button id="inviteButton" onclick="sendInvite()">Invite</button><br>
 <ul id="invites">
 </ul>
 <h3>Account</h3>
@@ -12,7 +16,36 @@
 <script>
 var ws = new WebSocket(((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.host + "/ws")
 ws.onmessage = function(event) {
-	document.write(event.data)
+	var data = JSON.parse(event.data)
+	if (data.type === "message") chatbox.innerHTML += data.message+"<br>"
+	if (data.type === "invite") {invites.innerHTML += "<li id="+data.id+" onclick='acceptInvite(this)'>"+data.username}
+	if (data.type === "error") {error.innerHTML = data.message; error.style.display = "block"; inviteUser.value = ""}
+	if (data.type === "status") {
+		if (data.message === "invite_sent") {
+			inviteUser.disabled = true
+			inviteUser.value += " (pending)"
+			inviteButton.disabled = true
+		} else if (data.message === "invite_accepted") {
+			inviteUser.disabled = false
+			inviteUser.value = ""
+			inviteButton.disabled = false
+		} else if (data.message === "invite_removed") {
+			document.getElementById(data.id.toString()).remove()
+		}
+	}
 }
+function sendInvite() {
+	ws.send(JSON.stringify({"type": "invite", "username": inviteUser.value}))
+}
+function acceptInvite(target) {
+	ws.send(JSON.stringify({"type": "accept", "id": parseInt(target.id)}))
+	target.remove()
+}
+messageBox.addEventListener("keydown", function sendMessage(event) {
+	if (event.keyCode === 13) {
+		ws.send(JSON.stringify({"type": "message", "message": messageBox.value}))
+		messageBox.value = ""
+	}
+})
 </script>
 {% endblock %}

@@ -17,22 +17,56 @@ chats = []
 
 @sockets.route('/ws')
 def socket(ws):
+	ws.send(json.dumps({"message": "Welcome!", "type": "message"}))
 	for u in chats:
 		if u[1].closed:
 			chats.remove(u)
 	if not session["user"]: return
-	chats.append((session["user"], ws, None, None))
+	chat = [session["user"], ws, None, None, []]
+	chats.append(chat)
 	while not ws.closed:
 		try:
 			m = json.loads(ws.receive())
-			if m["action"] == "invite":
-				
+			if m["type"] == "invite":
+				sent = False
+				for u in chats:
+					if u[0] == m["username"]:
+						u[1].send(json.dumps({"type": "invite", "username": session["user"], "id": id(ws)}))
+						u[4].append(id(ws))
+						sent = True
+				if not sent:
+					chat[1].send(json.dumps({"type": "error", "message": "Error: User is not online."}))
+				else:
+					chat[1].send(json.dumps({"type": "status", "message": "invite_sent"}))
+			elif m["type"] == "accept":
+				for u in chats:
+					if id(u[1]) == m["id"]:
+						u[2] = session["user"]
+						u[3] = ws
+						chat[2] = u[0]
+						chat[3] = u[1]
+						u[1].send(json.dumps({"type": "status", "message": "invite_accepted"}))
+						u[1].send(json.dumps({"type": "message", "message": "Now chatting with "+u[2]+"."}))
+						u[3].send(json.dumps({"type": "message", "message": "Now chatting with "+u[0]+"."}))
+						break
+				else:
+					chat[1].send(json.dumps({"type": "status", "message": "User is not online."}))
+			elif m["type"] == "message":
+				chat[1].send(json.dumps({"type": "message", "message": session["user"]+": "+m["message"]}))
+				chat[3].send(json.dumps({"type": "message", "message": session["user"]+": "+m["message"]}))
 		except Exception as e:
 			print(e)
+	for u in chats:
+		for i in u[4]:
+			if i == id(ws):
+				u[1].send(json.dumps({"type": "status", "message": "invite_removed", "id": i}))
+				u[4].remove(i)
+		if u[3] == ws:
+			u[1].send(json.dumps({"type": "message", "message": session["user"] + " left the chat."}))
+	chats.remove(chat)
 
 @app.route('/')
 def index():
-	print(chats)
 	if session.get('user'):
 		return render_template("home.html")
 	else: return redirect("/login")
