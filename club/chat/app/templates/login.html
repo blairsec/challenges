@@ -2,7 +2,7 @@
 
 {% block content %}
 <form method="post">
-	<input name="username" type="text" required placeholder="Username">
+	<input name="username" type="text" required pattern="^[a-zA-Z0-9_]+$" placeholder="Username">
 	<input name="password" type="password" required placeholder="Password">
 	<button type="submit">Log In</button>
 </form>

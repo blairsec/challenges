@@ -1,11 +1,11 @@
 <!doctype html>
 <head>
-  <title>Chat</title>
+  <title>Math Team Chat</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <nav>
-    <h1>Chat</h1>
+    <h1>Math Team Chat</h1>
     <ul>
       {% if session.user %}
         <li><a href="{{ url_for('logout') }}">Log Out</a>

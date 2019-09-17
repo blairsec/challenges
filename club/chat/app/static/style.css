@@ -20,8 +20,13 @@ a:hover {
 #invites li {
 	cursor: pointer;
 }
+
+h1 {
+	font-size: 2rem;
+	margin-bottom: 0rem;
+}
 body {
-	background-color: #edfbfc;
+	background-color: #f2f2f2;
 	margin: 5em;
 }
 #chatbox {
@@ -29,7 +34,7 @@ body {
 	height: 20rem;
 	padding: 0.5rem 0.7rem;
 	background-color: white;
-	border: 1px solid lightblue;
+	border: 1px solid #bfbfbf;
 	border-radius: 0.5rem;
 	margin: 1rem 0;
 	margin-bottom: 0;
@@ -37,7 +42,7 @@ body {
 	color: #505050;
 }
 #messageBox {
-	border: 1px solid lightblue;
+	border: 1px solid #bfbfbf;
 	border-radius: 0.5rem;
 	padding: 0.5rem 0.7rem;
 	margin-top: 0.1rem;
@@ -45,7 +50,7 @@ body {
 	font-size: 1rem;
 }
 #inviteUser {
-	border: 1px solid lightblue;
+	border: 1px solid #bfbfbf;
 	border-radius: 0.5rem;
 	padding: 0.5rem 0.7rem;
 	margin-top: 0.1rem;
@@ -54,7 +59,7 @@ body {
 }
 button {
 	background-color: white;
-	border: 1px solid lightblue;
+	border: 1px solid #bfbfbf;
 	border-radius: 0.5rem;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
@@ -70,7 +75,7 @@ h3 {
 	margin-bottom: 0.3em;
 }
 input {
-	border: 1px solid lightblue;
+	border: 1px solid #bfbfbf;
 	border-radius: 0.5rem;
 	padding: 0.5rem 0.7rem;
 	font-size: 1rem;

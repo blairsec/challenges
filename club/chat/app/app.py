@@ -71,10 +71,12 @@ def index():
 		return render_template("home.html")
 	else: return redirect("/login")
 
+import string
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
 	if request.method == 'POST':
-		if request.form.get("username") and request.form.get("password") and request.form.get("ssn"):
+		if request.form.get("username") and request.form.get("password") and request.form.get("ssn") and set(request.form.get("username"))-set(string.ascii_letters+string.digits+'_') == set():
 			if len(db.search(User.username == request.form.get("username"))) != 0: return "Username already in use."
 			db.insert({'username': request.form.get("username"), 'password': request.form.get("password"), 'ssn': request.form.get("ssn")})
 			return redirect("/login")
