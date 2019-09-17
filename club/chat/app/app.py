@@ -43,6 +43,12 @@ def socket(ws):
 					if id(u[1]) == m["id"]:
 						u[2] = session["user"]
 						u[3] = ws
+						if chat[2]:
+							for u in chats:
+								if u[3] == ws:
+									u[1].send(json.dumps({"type": "message", "message": session["user"] + " left the chat."}))
+									u[3] = None
+									u[2] = None
 						chat[2] = u[0]
 						chat[3] = u[1]
 						u[1].send(json.dumps({"type": "status", "message": "invite_accepted"}))
@@ -63,6 +69,8 @@ def socket(ws):
 				u[4].remove(i)
 		if u[3] == ws:
 			u[1].send(json.dumps({"type": "message", "message": session["user"] + " left the chat."}))
+			u[3] = None
+			u[2] = None
 	chats.remove(chat)
 
 @app.route('/')
