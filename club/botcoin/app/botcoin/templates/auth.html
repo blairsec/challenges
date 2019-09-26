@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Botcoin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <article class="message {{ 'is-danger' if category == 'error' else 'is-success' }}">
+              <div class="message-header">
+                <p>{{ 'Error' if category == 'error' else 'Success' }}</p>
+                <button class="delete" aria-label="delete" onclick="remove(this.parentNode.parentNode)"></button>
+              </div>
+              <div class="message-body">
+                {{ message }}
+              </div>
+            </article>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <div class="columns">
+        <div class="column is-one-third">
+          <div class="title">
+            Botcoin
+          </div>
+          <p class="subtitle">
+            Decentralized banking for robots
+          </p>
+        </div>
+        <div class="column is-one-third">
+          <small>Efficient blockchain technology using deep learning and fully convolutional neural networks to cryptographically transfer funds in the cloud</small>
+        </div>
+      </div>
+      <div id="auth">
+        <div class="tabs">
+          <ul>
+            <li :class="{ 'is-active': tab == 'login' }" @click="toggle('login')"><a>Login</a></li>
+            <li :class="{ 'is-active': tab == 'register' }" @click="toggle('register')"><a>Register</a></li>
+          </ul>
+        </div>
+        <form method="POST" :action="'/'+tab">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" name="username" placeholder="Username">
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input class="input" type="password" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button class="button is-link" v-if="tab == 'login'">Login</button>
+              <button class="button is-link" v-if="tab == 'register'">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    function remove(el) {
+      el.parentNode.removeChild(el)
+    }
+    var auth = new Vue({
+      el: '#auth',
+      data: {
+        tab: 'register',
+      },
+      methods: {
+        toggle: function(tab) {
+          this.tab = tab
+        },
+      },
+    })
+  </script>
+  </body>
+</html>

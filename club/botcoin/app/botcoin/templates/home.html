@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Botcoin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <style>[v-cloak] { display: none }</style>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <article class="message {{ 'is-danger' if category == 'error' else 'is-success' }}">
+              <div class="message-header">
+                <p>{{ 'Error' if category == 'error' else 'Success' }}</p>
+                <button class="delete" aria-label="delete" onclick="remove(this.parentNode.parentNode)"></button>
+              </div>
+              <div class="message-body">
+                {{ message }}
+              </div>
+            </article>
+          {% endfor %}
+          <br>
+        {% endif %}
+      {% endwith %}
+      <div>
+        <div class="field has-addons is-pulled-right">
+          <div class="control">
+            <a class="button is-static">
+              <b>{{ username }}</b>
+            </a>
+          </div>
+          <div class="control">
+            <a class="button is-link" href="/logout">
+              Logout
+            </a>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-one-third">
+            <div class="title">
+              Botcoin
+            </div>
+            <p class="subtitle">
+              Decentralized banking for robots
+            </p>
+          </div>
+          <div class="column is-one-third">
+            <small>Efficient blockchain technology using deep learning and fully convolutional neural networks to cryptographically transfer funds in the cloud</small>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Litecoin</p>
+            <p class="title">&#x141; {{ litecoin }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Ether</p>
+            <p class="title">&#x39E; {{ ether }}</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Bitcoin</p>
+            <p class="title">&#xE3F; {{ bitcoin }}</p>
+          </div>
+        </div>
+      </nav>
+      <div id="home">
+        <div class="tabs">
+          <ul>
+            <li :class="{ 'is-active': tab == 'transfer' }" @click="toggle('transfer')"><a>Transfer</a></li>
+            <li :class="{ 'is-active': tab == 'report' }" @click="toggle('report')"><a>Report</a></li>
+          </ul>
+        </div>
+        <div v-show="tab == 'transfer'">
+          <h5 class="title is-5">
+            Transfer funds to another user
+          </h5>
+          <div class="field has-addons">
+            <p class="control">
+              <span class="select">
+                <select v-model="currency">
+                  <option value="litecoin">&#x141;</option>
+                  <option value="ether">&#x39E;</option>
+                  <option value="bitcoin">&#xE3F;</option>
+                </select>
+              </span>
+            </p>
+            <form method="GET" action="/litecoin" v-if="currency == 'litecoin'">
+              <div class="field has-addons">
+                <p class="control"></p>
+                <p class="control">
+                  <input class="input" type="number" name="amount" placeholder="Amount">
+                </p>
+                <p class="control">
+                  <input class="input" type="text" name="recipient" placeholder="Username">
+                </p>
+                <p class="control">
+                  <button class="button is-link">Transfer</button>
+                </p>
+              </div>
+            </form>
+            <form method="POST" action="/ether" v-if="currency == 'ether'">
+              <div class="field has-addons">
+                <p class="control"></p>
+                <p class="control">
+                  <input class="input" type="number" name="amount" placeholder="Amount">
+                </p>
+                <p class="control">
+                  <input class="input" type="text" name="recipient" placeholder="Username">
+                </p>
+                <p class="control">
+                  <button class="button is-link">Transfer</button>
+                </p>
+              </div>
+            </form>
+            <form method="POST" action="/bitcoin" v-if="currency == 'bitcoin'">
+              <input type="hidden" name="csrftoken" value="{{ csrftoken }}">
+              <div class="field has-addons">
+                <p class="control"></p>
+                <p class="control">
+                  <input class="input" type="number" name="amount" placeholder="Amount">
+                </p>
+                <p class="control">
+                  <input class="input" type="text" name="recipient" placeholder="Username">
+                </p>
+                <p class="control">
+                  <button class="button is-link">Transfer</button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div v-show="tab == 'report'" v-cloak>
+          <h5 class="title is-5">
+            Report an issue
+          </h5>
+          <form method="POST" action="https://csrf.mbhs.me:1337" enctype="application/x-www-form-urlencoded">
+            <div class="field has-addons">
+              <div class="control is-expanded">
+                <input class="input" type="text" name="url" placeholder="Link">
+              </div>
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    function remove(el) {
+      el.parentNode.removeChild(el)
+    }
+    var home = new Vue({
+      el: '#home',
+      data: {
+        tab: 'transfer',
+        currency: 'litecoin',
+      },
+      methods: {
+        toggle: function(tab) {
+          this.tab = tab
+        },
+      },
+    })
+  </script>
+  </body>
+</html>
