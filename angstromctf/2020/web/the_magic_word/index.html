@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>What's the magic word?</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                margin: 0;
+            }
+            p {
+                font-family: "Inconsolata", monospace;
+                text-align: center;
+                font-size: 64px;
+                vertical-align: middle;
+                user-select: none;
+                margin: 0;
+            }
+            .flexmagic {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                position: absolute;
+                margin: 0;
+                width: 100%;
+                flex-direction: column;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p class="hidden">this ain't it chief</p>
+        </div>
+        <div>
+            <p class="hidden">this also ain't it chief</p>
+        </div>
+        <div>
+            <div class="flexmagic">
+                <p id="magic">give flag</p>
+            </div>
+        </div>
+        <div>
+            <p class="hidden">you passed it chief</p>
+        </div>
+        <script>
+            var msg = document.getElementById("magic");
+            setInterval(function() {
+                if (magic.innerText == "please give flag") {
+                    fetch("/flag?msg=" + encodeURIComponent(msg.innerText))
+                        .then(res => res.text())
+                        .then(txt => magic.innerText = txt.split``.map(v => String.fromCharCode(v.charCodeAt(0) ^ 0xf)).join``);
+                }
+            }, 1000);
+        </script>
+    </body>
+</html>

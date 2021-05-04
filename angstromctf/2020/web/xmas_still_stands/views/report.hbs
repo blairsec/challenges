@@ -1,0 +1,24 @@
+{{#if err}}
+    <div class="alert alert-danger" role="alert">
+        {{err}}
+    </div>
+{{/if}}
+{{#if succ}}
+    <div class="alert alert-success" role="alert">
+        {{succ}}
+    </div>
+{{/if}}
+<div class="container mx-auto partial-width pt-4">
+    <p>Is there a filthy Xmas sympathizer lurking in these forums? Don't wanna wait the 15 minutes for their post to disappear? Well just report their post and one of our helpful admins will come and check it out! (Note: Our admins are kinda lazy so they're pretty much guaranteed to delete any post you report.)</p>
+    <hr/>
+    <form action="/report" method="POST">
+        <div class="form-group">
+            <label for="postid">ID of post</label>
+            <input type="text" class="form-control" id="postid" name="id" placeholder="1337">
+        </div>
+        <div class="g-recaptcha" data-sitekey="{{captchaKey}}"></div>
+        <br>
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>
+<script src="https://www.google.com/recaptcha/api.js"></script>

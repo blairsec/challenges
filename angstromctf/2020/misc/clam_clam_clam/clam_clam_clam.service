@@ -1,0 +1,12 @@
+service chall-clam
+{ 
+    disable = no
+    type = UNLISTED
+    socket_type = stream
+    protocol = tcp
+    wait = no
+    port = 3000
+    user = root
+    server = /usr/bin/timeout
+    server_args = 1m /usr/local/bin/node /ctf/index.js
+}

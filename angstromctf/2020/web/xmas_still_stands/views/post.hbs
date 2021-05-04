@@ -1,0 +1,19 @@
+{{#if err}}
+    <div class="alert alert-danger" role="alert">
+        {{err}}
+    </div>
+{{/if}}
+{{#if (nonNegative postid)}}
+    <div class="alert alert-success" role="alert">
+        Your post has been saved at <a href="{{postURL postid}}" class="alert-link">{{postURL postid}}</a>.
+    </div>
+{{/if}}
+<div class="container mx-auto partial-width pt-2">
+    <form action="/post" method="POST">
+        <div class="form-group">
+            <label for="post-content">Post content</label>
+            <textarea class="form-control" id="post-content" name="content" rows="6" placeholder="Man I hate Xmas!"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>

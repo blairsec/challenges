@@ -1,0 +1,13 @@
+root: "/problems"
+competition: "2021"
+name: "infinity_gauntlet"
+files:
+  - src: "infinity_gauntlet"
+    dest: "infinity_gauntlet"
+    mode: 2555
+  - src: "flag.txt"
+    dest: "flag.txt"
+    mode: 440
+xinetd:
+  port: 21700
+  server: "infinity_gauntlet"

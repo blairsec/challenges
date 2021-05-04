@@ -1,0 +1,10 @@
+root: "/problems"
+competition: "2020"
+name: "autorev_assemble"
+files:
+  - src: "autorev_assemble"
+    dest: "autorev_assemble"
+    mode: 555
+xinetd:
+    port: 20203
+    server: "autorev_assemble"

@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2021'
+name: 'archaic'
+files:
+  - src: 'archive.tar.gz'
+    dest: 'archive.tar.gz'
+    mode: 444

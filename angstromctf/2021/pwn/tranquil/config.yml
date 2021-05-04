@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2021'
+name: 'tranquil'
+files:
+  - src: 'tranquil'
+    dest: 'tranquil'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+  - src: 'tranquil.c'
+    dest: 'tranquil.c'
+    mode: 444
+xinetd:
+  port: 21830
+  server: 'tranquil'

@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2020'
+name: 'patcherman'
+files:
+  - src: 'patcherman'
+    dest: 'patcherman'
+    mode: 555

@@ -1,0 +1,79 @@
+* {
+	outline: none;
+	font-family: "Roboto", sans-serif;
+}
+
+h1 {
+	text-align: center;
+	font-size: 36px;
+	margin: 0;
+	padding-top: 40px;
+}
+
+p {
+	margin-left: 30%;
+	margin-right: 30%;
+	font-size: 16px;
+}
+
+span.small {
+	font-size: 8px;
+}
+
+html, body {
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	background: linear-gradient(to bottom, #ffffdd, #ddddff);
+	background-attachment: fixed;
+}
+
+div.searchdiv {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+::placeholder {
+	color: #aaaaaa;
+}
+
+#searchbar, #searchbutton {
+	height: 50px;
+	border: 2px solid #aaaaaa;
+}
+
+#searchbar {
+	width: 35%;
+	border-radius: 50px 0 0 50px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	font-size: 20px;
+	border-right: 0;
+}
+
+#searchbutton {
+	width: 5%;
+	border-radius: 0 50px 50px 0;
+	background: white;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+table {
+	padding-top: 50px;
+	width: 40%;
+	margin: auto;
+	text-align: center;
+	table-layout: fixed;
+}
+
+th {
+	font-size: 20px;
+}
+
+.err {
+	color: red;
+}

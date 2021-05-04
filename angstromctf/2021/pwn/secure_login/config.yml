@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2021'
+name: 'secure_login'
+files:
+  - src: 'login'
+    dest: 'login'
+    mode: 2555
+  - src: 'login.c'
+    dest: 'login.c'
+    mode: 444
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+xinetd:
+  port: 21388
+  server: 'login'

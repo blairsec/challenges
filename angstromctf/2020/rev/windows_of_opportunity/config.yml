@@ -1,0 +1,7 @@
+root: '/problems'
+competition: '2020'
+name: 'windows_of_opportunity'
+files:
+  - src: 'windows_of_opportunity.exe'
+    dest: 'windows_of_opportunity.exe'
+    mode: 444

@@ -1,0 +1,10 @@
+root: "/problems"
+competition: "2020"
+name: "just_rust"
+files:
+  - src: "just_rust"
+    dest: "just_rust"
+    mode: 555
+  - src: "output.txt"
+    dest: "output.txt"
+    mode: 444

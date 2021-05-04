@@ -1,0 +1,22 @@
+<div class="alert alert-danger d-none" role="alert" id="erroralert"></div>
+<div class="container mx-auto partial-width pt-2">
+    <h1 class="display-4">Post</h1>
+    <p id="postcontent">Loading post...</p>
+</div>
+<script>
+    var erroralert = document.getElementById("erroralert");
+    var postcontent = document.getElementById("postcontent");
+    fetch("/api" + window.location.pathname)
+        .then(res => {
+            if (res.status == 404) {
+                erroralert.innerHTML = "Could not find post. It may have expired or been deleted by an admin.";
+                erroralert.classList.remove("d-none");
+                return Promise.resolve("Not found.");
+            } else {
+                return res.text();
+            }
+        })
+        .then(text => {
+            postcontent.innerHTML = text;
+        });
+</script>

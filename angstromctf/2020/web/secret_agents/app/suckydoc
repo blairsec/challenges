@@ -1,0 +1,24 @@
+FROM ubuntu:16.04
+
+COPY . /ctf
+WORKDIR /ctf
+
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository ppa:deadsnakes/ppa
+RUN apt-get update
+RUN apt-get install -y python3.6
+RUN apt-get install -y wget upstart
+
+RUN wget https://bootstrap.pypa.io/get-pip.py
+RUN python3 get-pip.py
+
+RUN echo 'mysql-server mysql-server/root_password password angstromctf202020202020' | debconf-set-selections
+RUN echo 'mysql-server mysql-server/root_password_again password angstromctf202020202020' | debconf-set-selections
+
+RUN apt-get install -q -y mysql-server
+
+RUN /etc/init.d/mysql start
+RUN mysql < table.sql
+
+RUN pip install -r requirements.txt

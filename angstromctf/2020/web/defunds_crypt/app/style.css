@@ -1,0 +1,69 @@
+* {
+    outline: none;
+}
+
+body {
+    background-color: black;
+}
+
+.small {
+    opacity: 0.3;
+}
+
+h1 {
+    font-family: "Inconsolata", monospace;
+    font-size: 48px;
+}
+
+p, h1 {
+    text-align: center;
+    color: #00ff00;
+}
+
+p {
+    font-family: "Special Elite", cursive;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 230px;
+    margin: auto;
+}
+
+input.satisfied[type="file"]+label {
+    background-color: #00ff00;
+    color: black;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="file"]+label, input {
+    font-family: "Special Elite", cursive;
+    color: #00ff00;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #00ff00;
+    padding: 5px 0;
+    background: none;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+}
+
+input[type="text"]::placeholder {
+    color: #555555;
+}
+
+input[type="file"]+label, input[type="submit"] {
+    cursor: pointer;
+}

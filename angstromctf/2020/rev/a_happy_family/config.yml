@@ -1,0 +1,13 @@
+root: "/problems"
+competition: "2020"
+name: "a_happy_family"
+files:
+  - src: "a_happy_family"
+    dest: "a_happy_family"
+    mode: 2555
+  - src: "a_happy_family.c"
+    dest: "a_happy_family.c"
+    mode: 444
+  - src: "flag.txt"
+    dest: "flag.txt"
+    mode: 440

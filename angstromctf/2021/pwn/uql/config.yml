@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2021'
+name: 'uql'
+files:
+  - src: 'uql'
+    dest: 'uql'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+  - src: 'uql.cpp'
+    dest: 'uql.cpp'
+    mode: 444
+xinetd:
+  port: 21321
+  server: 'uql'

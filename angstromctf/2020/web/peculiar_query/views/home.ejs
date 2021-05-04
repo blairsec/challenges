@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>People Lookup Site</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<% if (err) { %>
+		<h1 class="err"><%= err %></h1>
+	<% } %>
+	<h1>Criminal Record Lookup</h1>
+	<p>Here you can find some extremely <del>il</del>legitimate records of peoples' criminal activity! And it's completely free of charge! <span class="small">Just give me a million dollars first otherwise I'll only let you see their names.</span> My friend dropped all the tables but I made sure it won't happen again! In fact, I'm so confident in my website writing abilities that I'll give you <a href="/src">the source</a> so you can see how secure my site is!</p>
+	<div class="searchdiv">
+		<input id="searchbar" placeholder="John"/>
+		<button id="searchbutton">🔍</button>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Criminal Record</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% results.forEach(function(r) { %>
+				<tr><td><%= r.name %></td><td>where's my million dollars</td></tr>
+			<% }); %>
+		</tbody>
+	</table>
+	<script>
+		searchbutton.addEventListener("click", function() {
+			location.search = "?q=" + encodeURIComponent(searchbar.value);
+		});
+		searchbar.addEventListener("keydown", function(e) {
+			if (e.code == "Enter") {
+				location.search = "?q=" + encodeURIComponent(searchbar.value);
+			}
+		})
+	</script>
+</body>
+</html>

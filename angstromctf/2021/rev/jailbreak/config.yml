@@ -1,0 +1,15 @@
+root: "/problems"
+competition: "2021"
+name: "jailbreak"
+files:
+  - src: "jailbreak"
+    dest: "jailbreak"
+    mode: 2555
+  - src: "flag.txt"
+    dest: "flag.txt"
+    mode: 440
+xinetd:
+  port: 21701
+  server: "jailbreak"
+
+

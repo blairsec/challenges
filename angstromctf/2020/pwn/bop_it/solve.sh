@@ -1,0 +1,1 @@
+python2 -c 'print "a\x00\x00"*50' | ./bop_it

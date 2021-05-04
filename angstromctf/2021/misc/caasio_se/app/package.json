@@ -1,0 +1,15 @@
+{
+    "name": "caasio_snake_edition",
+    "version": "1.0.0",
+    "description": "sneaky snek",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "aplet123",
+    "license": "ISC",
+    "dependencies": {
+        "acorn": "^8.1.0"
+    }
+}

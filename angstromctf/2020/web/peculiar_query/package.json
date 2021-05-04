@@ -1,0 +1,21 @@
+{
+  "name": "query",
+  "version": "1.0.0",
+  "description": "Query strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"yay\"",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "query"
+  ],
+  "author": "Aplet123",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.7.2",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.1",
+    "pg": "^7.12.1"
+  }
+}

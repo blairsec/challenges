@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2021'
+name: 'sanity_checks'
+files:
+  - src: 'checks'
+    dest: 'checks'
+    mode: 2555
+  - src: 'checks.c'
+    dest: 'checks.c'
+    mode: 444
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+xinetd:
+  port: 21303
+  server: 'checks'

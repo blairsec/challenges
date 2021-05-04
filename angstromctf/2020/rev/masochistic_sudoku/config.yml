@@ -1,0 +1,10 @@
+root: "/problems"
+competition: "2020"
+name: "masochistic_sudoku"
+files:
+  - src: "masochistic_sudoku"
+    dest: "masochistic_sudoku"
+    mode: 2555
+  - src: "flag.txt"
+    dest: "flag.txt"
+    mode: 440

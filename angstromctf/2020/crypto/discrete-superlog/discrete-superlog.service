@@ -1,0 +1,12 @@
+service chall-discrete-superlog
+{ 
+    disable = no
+    type = UNLISTED
+    socket_type = stream
+    protocol = tcp
+    wait = no
+    port = 3000
+    user = root
+    server = /usr/bin/timeout
+    server_args = 1h /usr/local/bin/python3 /ctf/discslog.py
+}

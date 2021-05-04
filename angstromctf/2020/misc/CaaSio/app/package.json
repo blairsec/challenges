@@ -1,0 +1,11 @@
+{
+  "name": "caas",
+  "version": "1.0.0",
+  "description": "Calculator as a service.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aplet123",
+  "license": "ISC"
+}

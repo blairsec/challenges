@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2021'
+name: 'snake'
+files:
+  - src: 'snake'
+    dest: 'snake'
+    mode: 2555
+  - src: 'snake.c'
+    dest: 'snake.c'
+    mode: 444
+  - src: 'snake.py'
+    dest: 'snake.py'
+    mode: 554
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440

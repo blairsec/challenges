@@ -1,0 +1,10 @@
+root: '/problems'
+competition: '2020'
+name: 'taking_off'
+files:
+  - src: 'taking_off'
+    dest: 'taking_off'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440

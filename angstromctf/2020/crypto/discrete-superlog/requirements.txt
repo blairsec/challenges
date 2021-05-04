@@ -1,0 +1,2 @@
+git+git://github.com/elliptic-shiho/primefac-fork@master
+pycrypto==2.6.1

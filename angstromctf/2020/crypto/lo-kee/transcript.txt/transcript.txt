@@ -1,0 +1,6 @@
+aplet: use [https://rubiks-cube-solver.com/](https://rubiks-cube-solver.com/) to get scrambles from positions
+kmh: starting position is U R2 F2 R2 D L2 B2 D' F2 D U2 L' R2 U B U F' L2 F R'
+aplet: a'wa is R L' U' L B' L2 D' L' U2 D R2 L' B2 U2 D' R2 U D2 B2
+kmh: b'wb is R F B2 D' R' L2 B' L U R U' R2 F2 D2 F2 U' R2 L2 U' L2
+aplet: okay, key is a'b'wab
+[encrypted conversations follow]

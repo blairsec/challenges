@@ -1,0 +1,16 @@
+root: "/problems"
+competition: "2020"
+name: "library_in_c"
+files:
+  - src: "library_in_c"
+    dest: "library_in_c"
+    mode: 2555
+  - src: "flag.txt"
+    dest: "flag.txt"
+    mode: 440
+  - src: "library_in_c.c"
+    dest: "library_in_c.c"
+    mode: 444
+xinetd:
+    port: 20201
+    server: "library_in_c"

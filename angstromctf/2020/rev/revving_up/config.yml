@@ -1,0 +1,10 @@
+root: '/problems'
+competition: '2020'
+name: 'revving_up'
+files:
+  - src: 'revving_up'
+    dest: 'revving_up'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440

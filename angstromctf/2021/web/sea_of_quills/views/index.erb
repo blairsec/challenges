@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Sea of Quills</title>
+		<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+	</head>
+	
+	<body class="georgia h-100 w-100">
+		<nav class="dt w-100 border-box pa3">
+			<a class="dtc v-mid mid-gray link dim w-25" href="#" title="Home">
+				<img src="https://prodimage.images-bn.com/pimages/9780765598677_p0_v2_s1200x630.jpg" class="dib w3 h3 br-100">
+			</a>
+			<div class="dtc v-mid w-75 tr">
+				<a class="link dim dark-gray f4 f3-ns dib mr3 mr4-ns" href="/">Home</a>
+				<a class="link dim dark-gray f4 f3-ns dib" href="/quills">Explore</a>
+			</div>
+		</nav>
+		<!-- <marquee class="red pa2 f3">NOTICE:sometimes the Car runs away and does not come back (ever!!!!) I'm still looking for a fix SORRY</marquee> -->
+		<div class="container h-100 w-75 center f3">
+			<p class="f1">Our finest selection of quills, just for <span id="person"></span></p>
+			<hr />
+			<ul class="list pl0">
+				<% @row.each do |val| %>
+					<img src="<%= val[0] %>" class="w3 h3">
+				<li class="pb5 pl3"><%= val[1] %> <ul><li><%= val[2] %></li></ul></li><br />
+				<% end %>
+			</ul>
+		</div>
+		<script src="https://unpkg.com/typewriter-effect@2.3.1/dist/core.js"></script>
+		<script>
+			var typewriter = new Typewriter(document.getElementById("person"), {
+				loop: true
+			});
+			
+			typewriter.typeString('you')
+			.pauseFor(1750)
+			.deleteAll()
+			.typeString('your family')
+			.pauseFor(1750)
+			.deleteAll()
+			.typeString('your cow')
+			.pauseFor(1750)
+			.deleteAll()
+			.start();
+		</script>
+	</body>
+</html>

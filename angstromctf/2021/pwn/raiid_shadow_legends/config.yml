@@ -1,0 +1,16 @@
+root: '/problems'
+competition: '2021'
+name: 'raiid_shadow_legends'
+files:
+  - src: 'raiid_shadow_legends'
+    dest: 'raiid_shadow_legends'
+    mode: 2555
+  - src: 'flag.txt'
+    dest: 'flag.txt'
+    mode: 440
+  - src: 'raiid_shadow_legends.cpp'
+    dest: 'raiid_shadow_legends.cpp'
+    mode: 444
+xinetd:
+  port: 21300
+  server: 'raiid_shadow_legends'

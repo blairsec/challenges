@@ -1,0 +1,7 @@
+<div class="container mx-auto text-center partial-width pt-2">
+    <h1 class="display-4">Admin Landing Page</h1>
+    <p>Hey admins, you may have noticed that we've changed things up a bit. There's no longer any cumbersome, bruteforceable login system. All you need is the secret cookie verifying that you're an admin and you can get the flag anytime you want. Also, if you're not an admin PLEASE LEAVE THIS PAGE YOU DON'T BELONG HERE AND I WILL HUNT YOU DOWN AND RUIN YOUR DAY IF YOU STAY HERE. Disclaimer: I will not actually hunt you down or physically hurt you in any way, shape, or form, please don't sue me thanks.</p>
+    {{#if isAdmin}}
+        <p>Oh hey admin! The flag is {{flag}}.</p>
+    {{/if}}
+</div>

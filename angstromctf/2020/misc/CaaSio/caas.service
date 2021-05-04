@@ -1,0 +1,12 @@
+service chall-caas
+{ 
+    disable = no
+    type = UNLISTED
+    socket_type = stream
+    protocol = tcp
+    wait = no
+    port = 3000
+    user = limited
+    server = /usr/bin/timeout
+    server_args = 10m /usr/local/bin/node /ctf/index.js
+}

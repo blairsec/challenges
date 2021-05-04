@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cache me outside how bout that</title>
+        <style>
+            html {
+                height: 100%;
+                margin: 0;
+            }
+            body {
+                min-height: 100%;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: linear-gradient(150deg, lightblue, pink);
+                font-family: monospace;
+            }
+            input {
+                margin: 3px;
+                font-family: monospace;
+                border-radius: 3px;
+            }
+            input[name="a"] {
+                margin: 3px;
+                flex-grow: 3;
+            }
+            button {
+                font-family: monospace;
+                margin: 3px;
+                border: 3px solid red;
+                border-radius: 3px;
+            }
+            #input {
+                border: 3px solid blue;
+            }
+            div {
+                border: 3px solid green;
+                padding: 5px;
+                border-radius: 4px;
+                width: 90%;
+            }
+            #res {
+                box-sizing: border-box;
+                border: 3px solid brown;
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+                min-height: 2em;
+            }
+            div p {
+                box-sizing: border-box;
+                width: 100%;
+                align-items: center;
+            }
+            #flag {
+                white-space: nowrap;
+            }
+        </style>
+        <script>
+            function submit() {
+                let ival = document.querySelector("input[name=a]").value;
+                let arr = ival
+                    .match(/[0-9a-f]{1,2}/gi)
+                    .map((x) => parseInt(x, 16));
+                let secret = document.querySelector("#secret").value;
+                let kval = document.querySelector("input[name=k]").value;
+                fetch(`/api/${document.querySelector("#enc").value}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        a: arr,
+                        secret: secret,
+                        k:
+                            secret != "custom"
+                                ? undefined
+                                : kval
+                                      .match(/[0-9a-f]{1,2}/gi)
+                                      .map((x) => parseInt(x, 16)),
+                    }),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        document.querySelector("#res").value = data.result;
+                        document.querySelector(
+                            "#time"
+                        ).innerText = `Completed in ${data.time / 1000000}ms`;
+                        resize();
+                    });
+            }
+            function resize() {
+                let e = document.querySelector("#res");
+                e.style.height = "0px";
+                e.style.height = e.scrollHeight + 6 + "px";
+            }
+            window.onload = window.onorientationchange = window.onresize = resize;
+        </script>
+    </head>
+    <body>
+        <p id="flag">Encrypted flag: {{flagenc}}</p>
+        <p></p>
+        <h1>Welcome to my website!</h1>
+        <p>I made my own AES-ECB implementation in Python!</p>
+        <div>
+            <h2>Try it out here!</h2>
+            <h3>You'll never guess my secret key!</h3>
+            <p>
+                Input (hex):
+                <input name="a" id="input" autofocus autocomplete="off" />
+            </p>
+            <p id="key">
+                Key (hex): <input name="k" id="input" autocomplete="off" />
+            </p>
+            <p>
+                Options:
+                <select id="enc">
+                    <option value="enc">Encrypt</option>
+                    <option value="dec">Decrypt</option>
+                </select>
+                <select id="secret">
+                    <option value="custom">Use custom key</option>
+                    <option value="secret256">Use secret key (256 bits)</option>
+                    <option value="secret192">Use secret key (192 bits)</option>
+                    <option value="secret128">Use secret key (128 bits)</option>
+                </select>
+            </p>
+            <p>Result:</p>
+            <textarea id="res" wrap="hard" readonly></textarea>
+            <p><button onclick="submit()">Submit</button></p>
+            <p id="time"></p>
+        </div>
+        <script>
+            let flag = document.querySelector("#flag");
+            flag.style.position = "absolute";
+            let left1 = Math.random() * innerWidth;
+            let top1 = Math.random() * innerHeight;
+            let left2 = Math.random() * innerWidth;
+            let top2 = Math.random() * innerHeight;
+            let s = 0;
+            let steps = 150;
+            let a = 0;
+            let astep = (Math.random() - 0.5) * 10;
+            setInterval(function () {
+                if (s > steps) {
+                    s = 0;
+                    left1 = left2;
+                    top1 = top2;
+                    left2 = Math.random() * innerWidth;
+                    top2 = Math.random() * innerHeight;
+                    astep = (Math.random() - 0.5) * 10;
+                }
+                flag.style.left =
+                    Math.floor(
+                        (left2 * s + left1 * (steps - s)) / steps -
+                            parseInt(flag.clientWidth) / 2
+                    ) + "px";
+                flag.style.top =
+                    Math.floor(
+                        (top2 * s + top1 * (steps - s)) / steps -
+                            parseInt(flag.clientHeight) / 2
+                    ) + "px";
+                flag.style.transform = `rotate(${Math.floor(a)}deg)`;
+                a += astep;
+                s++;
+            }, 10);
+        </script>
+    </body>
+</html>

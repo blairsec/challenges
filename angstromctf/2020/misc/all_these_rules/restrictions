@@ -1,0 +1,7 @@
+PATHDIR=$(od  -vN "16" -An -tx1 /dev/urandom | tr -d " \n"; echo)
+mkdir /tmp/$PATHDIR -m 770
+cp /usr/bin/id /tmp/$PATHDIR/id
+chown $USER /tmp/$PATHDIR/id
+chmod 770 /tmp/$PATHDIR/id
+export PATH=/usr/share/rbin:/tmp/$PATHDIR
+enable -n `enable -a | /bin/grep -v return | /bin/sed "s/enable //"`
