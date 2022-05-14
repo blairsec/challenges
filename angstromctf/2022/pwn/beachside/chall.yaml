@@ -1,0 +1,13 @@
+name: beachside
+replicas: 1
+containers:
+  - path: beachside
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: FLAG
+          value: "actf{call_some_place_par4d1se_kiss_it_g0odbye_c80048f1e092}"
+expose:
+  - from: 8080
+    to: 31229

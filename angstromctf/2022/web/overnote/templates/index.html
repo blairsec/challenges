@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <title>OverNote</title>
+</head>
+<body>
+    <div class="topbar">
+        <h1>OverNote</h1>
+        <p>Write and Save your own notes.</p>
+    </div>
+
+    {% if 'error' %}
+
+    <div class="error-box">
+        <p>{{ error }}</p>
+    </div>
+
+    {% endif %}
+
+    <div class="main-section">
+        <form action="{{ url_for('login') }}" method="post">
+            <div class="form-top-text">
+                <h1>Login</h1>
+                <p>Already have an account? Log in below.</p>
+            </div>
+
+            <div class="input-div">
+                <p>Username</p>
+                <input type="text" name="username"></input>
+            </div>
+            <div class="input-div">
+                <p>Password</p>
+                <input type="password" name="password"></input>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="borderLine"></div>
+        <form action="{{ url_for('register') }}" method="post">
+            <div class="form-top-text">
+                <h1>Register</h1>
+                <p>Create an Account and begin writing notes!</p>
+            </div>
+            <div class="input-div">
+                <p>Username</p>
+                <input type="text" name="username"></input>
+            </div>
+            <div class="input-div">
+                <p>Password</p>
+                <input type="password" name="password"></input>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

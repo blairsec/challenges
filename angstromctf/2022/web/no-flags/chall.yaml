@@ -1,0 +1,10 @@
+name: no-flags
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 80
+http:
+  - port: 80
+    subdomain: no-flags

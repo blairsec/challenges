@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Xtra Salty Sardines</title>
+        <style>
+            b {
+                color: #c2185b;
+            }
+
+            h1 {
+                font-size: 36px;
+                font-family: sans-serif;
+                text-align: center;
+            }
+
+            form {
+                margin-bottom: 40px;
+                width: 500px;
+                margin: auto;
+            }
+
+            input {
+                width: 500px;
+                padding: 5px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+                font-size: 24px;
+            }
+
+            body {
+                background-color: #80cbc4;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><b>X</b>tra <b>S</b>alty <b>S</b>ardines</h1>
+        <form action="/mksardine" method="POST">
+            <input type="text" name="name" placeholder="name..." /><br />
+            <input type="submit" value="make sardine" />
+            <img
+                width="500"
+                src="https://www.thespruceeats.com/thmb/hAX2vV6kWSXxqn4oIAaraKywtVc=/2121x1193/smart/filters:no_upscale()/ALEAIMAGE-557a699afc8f44969da69a38acbd0a75.jpg"
+                alt="I like sardines"
+            />
+        </form>
+    </body>
+</html>

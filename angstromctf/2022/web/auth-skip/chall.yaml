@@ -1,0 +1,15 @@
+name: auth-skip
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: FLAG
+          value: "actf{passwordless_authentication_is_the_new_hip_thing}"
+http:
+  - port: 8080
+    subdomain: auth-skip

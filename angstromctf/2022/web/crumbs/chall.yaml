@@ -1,0 +1,16 @@
+name: crumbs
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: FLAG
+          value: "actf{w4ke_up_to_th3_m0on_6bdc10d7c6d5}"
+http:
+  - port: 8080
+    subdomain: crumbs

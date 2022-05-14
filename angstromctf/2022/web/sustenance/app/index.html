@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustenance</title>
+    <style>
+        body {
+            background-color: #4fc3f7;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            font-family: sans-serif;
+            color: black;
+        }
+
+        form {
+            display: flex;
+            width: 50%;
+            margin: auto;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 50px;
+            row-gap: 10px;
+        }
+        
+        form, input, p {
+            font-family: sans-serif;
+            font-size: 24px;
+            text-align: center;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>I require sustenance</h1>
+    <p id="msg" class="hidden"></p>
+    <form action="/s" method="POST">
+        Set search string: <input type="text" name="search">
+        <input type="submit" value="Update">
+    </form>
+    <form action="/q" method="GET">
+        Search: <input type="text" name="q">
+        <input type="submit" value="Update">
+    </form>
+    <script>
+        const q = new URLSearchParams(location.search);
+        if (q.get("m")) {
+            const p = document.getElementById("msg");
+            p.innerText = q.get("m");
+            p.classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>

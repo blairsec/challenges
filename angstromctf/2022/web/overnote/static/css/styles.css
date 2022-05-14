@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap");
+.main-section {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  height: 70vh;
+  left: 20vw;
+  bottom: 10vh;
+  position: absolute;
+  border: 1px solid hsl(0deg, 1%, 75%);
+  align-items: center;
+  justify-content: space-around;
+  background: white;
+  padding: 1rem 0 1rem 0;
+  box-shadow: 0 0px 5px 2px rgb(200, 200, 200);
+}
+.main-section form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+.main-section form .form-top-text {
+  width: 80%;
+}
+.main-section form .form-top-text h1 {
+  font-size: 2.5rem;
+  line-height: 0px;
+}
+.main-section form .form-top-text p {
+  font-size: 1rem;
+  color: hsl(0deg, 0%, 63%);
+}
+.main-section form .input-div {
+  width: 70%;
+}
+.main-section form .input-div input {
+  width: 100%;
+  height: 3rem;
+}
+.main-section .borderLine {
+  width: 2px;
+  height: 80%;
+  background: hsl(0deg, 1%, 75%);
+  z-index: 10;
+}
+
+.account-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+.account-page-content .account-top-text {
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  line-height: 0;
+  padding-top: 3vh;
+}
+.account-page-content .account-top-text h1 {
+  font-size: 3rem;
+}
+.account-page-content textarea {
+  width: 80vw;
+  height: 50vh;
+}
+.account-page-content button {
+  width: fit-content;
+  padding: 0 2rem 0 2rem;
+}
+
+* {
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: hsl(0deg, 0%, 95%);
+}
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 10vw 0 10vw;
+  background: hsl(216deg, 41%, 29%);
+  height: 10vh;
+  box-shadow: 0 10px 5px -2px rgb(200, 200, 200);
+}
+.topbar h1 {
+  font-size: 2rem;
+  color: white;
+}
+.topbar p {
+  font-size: 1rem;
+  color: white;
+}
+
+button {
+  background-color: hsl(216deg, 41%, 29%);
+  border: none;
+  color: white;
+  width: 60%;
+  height: 4rem;
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=styles.css.map */

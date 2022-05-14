@@ -1,0 +1,15 @@
+name: school-unblocker
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: FLAG
+          value: "actf{dont_authenticate_via_ip_please}"
+http:
+  - subdomain: school-unblocker
+    port: 8080

@@ -1,0 +1,51 @@
+@import './variables';
+@import './indexstyle';
+@import './accountstyle';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+
+* {
+    font-family: 'Work Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: $background-gray;
+}
+
+.topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 10vw 0 10vw;
+    background: $navy-blue;
+    height: 10vh;
+
+    box-shadow: 0 10px 5px -2px $shadow-color;
+
+    h1 {
+        font-size: 2rem;
+        color: white;
+    }
+    p {
+        font-size: 1rem;
+        color: white;
+    }
+}
+
+button {
+    background-color: $navy-blue;
+    border: none;
+    color: white;
+
+    width: 60%;
+    height: 4rem;
+
+    font-size: 1.5rem;
+
+    border-radius: 5px;
+
+}

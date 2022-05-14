@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackerMD</title>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.6/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.14/lib/marked.umd.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 24px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        textarea, input {
+            font-size: 24px;
+            border: 1px solid #00ff00;
+            border-radius: 3px;
+        }
+
+        h1, textarea, input {
+            color: #00ff00;
+            font-family: monospace;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>HackerMD</h1>
+    <form action="/" method="GET">
+        <textarea name="content" placeholder="paste contents..."></textarea><br>
+        <input type="submit" value="view paste">
+    </form>
+    <script>
+        const qs = new URLSearchParams(location.search);
+        if (qs.get("content")?.length > 0) {
+            document.body.innerHTML = marked.parse(DOMPurify.sanitize(qs.get("content")));
+        }
+    </script>
+</body>
+</html>

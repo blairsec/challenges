@@ -1,0 +1,83 @@
+; vim: ft=nasm
+
+%macro oc 3
+    db %3 & 0xff
+    db ((%2 & 0xf) << 4) + ((%3 >> 8) & 0xf)
+    db (%2 >> 4) & 0xff
+    db %1
+%endmacro
+
+%macro halt 0
+    oc 0x00, 0x000, 0x000
+%endmacro
+%define hlt halt
+
+%macro dat 1
+    oc 0xda, ((%1 >> 12) & 0xfff), (%1 & 0xfff)
+%endmacro
+
+%macro mv 2
+    oc 0xd6, %1, %2
+%endmacro
+%define mov mv
+
+%macro mvd 2
+    oc 0xd7, %1, %2
+%endmacro
+
+%macro imm 2
+    oc 0xd8, %1, %2
+%endmacro
+
+%macro imd 2
+    oc 0xd9, %1, %2
+%endmacro
+
+%macro jump 1
+    oc 0xa6, %1, 0x000
+%endmacro
+%define jmp jump
+
+%macro jiz 2
+    oc 0x69, %1, %2
+%endmacro
+
+%macro vm_add 2
+    oc 0x16, %1, %2
+%endmacro
+%define add vm_add
+
+%macro vm_sub 2
+    oc 0x17, %1, %2
+%endmacro
+%define sub vm_sub
+
+%macro vm_out 1
+    oc 0xf6, %1, 0x000
+%endmacro
+%define out vm_out
+
+%macro vm_inp 1
+    oc 0xf7, %1, 0x000
+%endmacro
+%define in vm_inp 
+
+%macro vm_xor 2
+    oc 0x18, %1, %2
+%endmacro
+%define xor vm_xor
+
+
+%macro print 1
+    %ifdef DEBUG
+        db %1 & 0xff
+        dw (%1 >> 8) & 0xffff
+        db 0x01
+    %else
+        db 0xff
+        dw 0xffff
+        db  0xff
+    %endif
+%endmacro
+
+

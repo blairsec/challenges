@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>School Unblocker</title>
+        <style>
+            h1, h2, input, button {
+                font-family: "Comic Sans MS", sans-serif;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            input, button {
+                font-size: 24px;
+            }
+
+            input {
+                width: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>School Unblocker</h1>
+        <h2>(working 2022) (unblocked) (real)</h2>
+        <input type="text" id="urlinp" placeholder="URL to view..." />
+        <button id="browse">Browse</button>
+        <script>
+            const urlinp = document.getElementById("urlinp");
+            const browse = document.getElementById("browse");
+            browse.addEventListener("click", function () {
+                fetch("/proxy", {
+                    method: "POST",
+                    body: "url=" + encodeURIComponent(urlinp.value),
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                })
+                    .then((res) => res.text())
+                    .then((text) => document.write(text));
+            });
+        </script>
+    </body>
+</html>

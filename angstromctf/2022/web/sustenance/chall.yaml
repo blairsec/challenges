@@ -1,0 +1,17 @@
+name: sustenance
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: ADMIN_SECRET
+          value: "744595e79c34fe6f96ad5f88ac4455da"
+        - name: FLAG
+          value: "actf{yummy_sustenance}"
+http:
+  - port: 8080
+    subdomain: sustenance

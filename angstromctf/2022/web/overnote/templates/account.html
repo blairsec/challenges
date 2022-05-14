@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <script src="{{url_for('static', filename='scripts/pastebin.js')}}"></script>
+    <title>Account</title>
+</head>
+<body>
+    <div class="topbar">
+        <h1>OverNote</h1>
+        <p>Write and Save your own notes.</p>
+    </div>
+    <div class="account-page-content">
+        <div class="account-top-text">
+            <h1>Hello {{username}}</h1>
+            <p>These are your notes. They will autosave on every keyboard input.</p>
+        </div>
+        <input type="hidden" id="username" name="username" value="{{username}}">
+        <input type="hidden" id="session" name="session" value="{{session}}">
+        <textarea name="paste_content" placeholder="Begin typing your notes here.">{% if 'content' %}{{content}}{% endif %}</textarea>
+        <button onclick="document.location.href = '/'">Log Out</button>
+    </div>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/scripts/pastebin.js"></script>
+</body>
+</html>

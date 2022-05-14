@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Secure Vault</title>
+        <style>
+            .error {
+                color: #ad1457;
+            }
+
+            h1 {
+                font-size: 36px;
+                font-family: sans-serif;
+                text-align: center;
+            }
+
+            p, input, form {
+                font-size: 24px;
+                font-family: sans-serif;
+                text-align: center;
+            }
+
+            input[type=submit] {
+                background-color: #9575cd;
+                border: 1px solid #1a237e;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                cursor: pointer;
+            }
+
+            body {
+                background-color: #c5e1a5;
+            }
+
+            form {
+                width: 50%;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+            }
+
+            textarea {
+                font-family: monospace;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Secure Vault</h1>
+        <p id="msg"></p>
+        <form id="lform" method="POST">
+            Username: <input type="text" name="username" /><br />
+            Password: <input type="text" name="password" /><br />
+            <input type="submit" id="login-btn" value="Login" />
+            <input type="submit" id="register-btn" value="Register" />
+        </form>
+        <script>
+            const msg = document.getElementById("msg");
+            const q = new URLSearchParams(location.search);
+            if (q.get("m")) {
+                msg.innerText = q.get("m");
+            } else if (q.get("e")) {
+                msg.classList.add("error");
+                msg.innerText = q.get("e");
+            }
+            const lform = document.getElementById("lform");
+            document
+                .getElementById("login-btn")
+                .addEventListener("click", (e) => {
+                    e.preventDefault();
+                    lform.action = "/login";
+                    lform.submit();
+                });
+            document
+                .getElementById("register-btn")
+                .addEventListener("click", (e) => {
+                    e.preventDefault();
+                    lform.action = "/register";
+                    lform.submit();
+                });
+        </script>
+    </body>
+</html>

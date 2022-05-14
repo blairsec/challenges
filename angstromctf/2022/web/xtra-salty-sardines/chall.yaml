@@ -1,0 +1,17 @@
+name: xtra-salty-sardines
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: ADMIN_SECRET
+          value: "761c27dc1df6486393d37e7ffb1532e5"
+        - name: FLAG
+          value: "actf{those_sardines_are_yummy_yummy_in_my_tummy}"
+http:
+  - port: 8080
+    subdomain: xtra-salty-sardines

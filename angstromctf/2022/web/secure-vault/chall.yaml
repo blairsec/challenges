@@ -1,0 +1,15 @@
+name: secure-vault
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: FLAG
+          value: "actf{is_this_what_uaf_is}"
+http:
+  - subdomain: secure-vault
+    port: 8080

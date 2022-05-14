@@ -1,0 +1,20 @@
+name: caasio-please-stop
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: JAIL_PORT
+          value: "8080"
+        - name: JAIL_MEM
+          value: "40M"
+        - name: JAIL_PIDS
+          value: "30"
+      security_context:
+        privileged: true
+expose:
+  - from: 8080
+    to: 31337

@@ -1,0 +1,67 @@
+.main-section {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    height: 70vh;
+    left: 20vw;
+    bottom: 10vh;
+
+    position: absolute;
+
+    border: 1px solid $border-line;
+
+    align-items: center;
+    justify-content: space-around;
+
+    background: white;
+
+    padding: 1rem 0 1rem 0;
+    
+    box-shadow: 0 0px 5px 2px $shadow-color;
+
+    form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        gap: 1rem;
+
+        .form-top-text {
+
+            width: 80%;
+
+            h1 {
+                font-size: 2.5rem;
+                line-height: 0px;
+            }
+
+            p {
+                font-size: 1rem;
+                color: $text-gray;
+            }
+
+        }
+
+        .input-div {
+
+            width: 70%;
+
+            input {
+                width: 100%;
+                height: 3rem;
+            }
+        }
+
+    }
+
+    .borderLine {
+        width: 2px;
+        height: 80%;
+        background: $border-line;
+        z-index: 10;
+    }
+
+}

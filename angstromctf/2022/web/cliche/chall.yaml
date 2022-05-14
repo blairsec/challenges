@@ -1,0 +1,13 @@
+name: cliche
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+http:
+  - port: 8080
+    subdomain: cliche

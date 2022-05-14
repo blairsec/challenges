@@ -1,0 +1,13 @@
+{
+    "name": "caasio_please_stop",
+    "version": "1.0.0",
+    "description": "ahhhhhhhh",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "aplet123",
+    "license": "ISC",
+    "dependencies": {}
+}

