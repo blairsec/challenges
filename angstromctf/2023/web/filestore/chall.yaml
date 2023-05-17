@@ -1,0 +1,10 @@
+name: filestore
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+http:
+  - port: 8080
+    subdomain: filestore

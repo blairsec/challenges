@@ -1,0 +1,13 @@
+name: better-me
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 3000
+      env:
+        - name: OPENAI_API_KEY
+          value: "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"
+http:
+  - port: 3000
+    subdomain: better-me

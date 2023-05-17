@@ -1,0 +1,11 @@
+name: sailors-revenge
+replicas: 4
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 5000
+expose:
+  - from: 5000
+    to: 31404

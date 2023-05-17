@@ -1,0 +1,11 @@
+name: shortcircuit
+replicas: 1
+containers:
+  - path: src
+    name: app
+    kube:
+      ports:
+        - container_port: 80
+http:
+  - port: 80
+    subdomain: shortcircuit

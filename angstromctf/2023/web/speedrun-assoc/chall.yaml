@@ -1,0 +1,15 @@
+name: speedrun-assoc
+replicas: 1
+containers:
+  - path: src
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: FLAG
+          value: "actf{wait_until_farewell_speedrun}"
+http:
+  - port: 8080
+    subdomain: mount-tunnel

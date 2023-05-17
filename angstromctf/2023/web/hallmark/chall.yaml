@@ -1,0 +1,17 @@
+name: hallmark
+replicas: 1
+containers:
+  - path: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: ADMIN_SECRET
+          value: "9eabcd55c12296a679abee8c14b2fa9172cae901604be0048ec949ef4dc294ca"
+        - name: FLAG
+          value: "actf{the_adm1n_has_rece1ved_y0ur_card_cefd0aac23a38d33}"
+http:
+  - port: 8080
+    subdomain: hallmark

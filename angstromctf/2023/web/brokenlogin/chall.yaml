@@ -1,0 +1,15 @@
+name: brokenlogin
+replicas: 1
+containers:
+  - path: src
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: PORT
+          value: "8080"
+        - name: JAIL_MEM
+          value: "25M"
+http:
+  - port: 8080
+    subdomain: brokenlogin

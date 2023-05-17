@@ -1,0 +1,24 @@
+name: snap-circuits
+replicas: 4
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: JAIL_PORT
+          value: "8080"
+        - name: JAIL_MEM
+          value: "40M"
+        - name: JAIL_TIME
+          value: "60"
+        - name: JAIL_POW
+          value: "4500"
+        - name: JAIL_CPU
+          value: "500"
+      security_context:
+        privileged: true
+expose:
+  - from: 8080
+    to: 32511
