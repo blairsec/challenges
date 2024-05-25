@@ -1,0 +1,10 @@
+{
+    "files": [
+        "recovered.img"
+    ],
+    "flag": "waw_ctrl_f_was_sooper_afective",
+    "hint": "A simple text editor is all you need.",
+    "name": "Recovery",
+    "text": "We recieved this {{recovered.img, disk image}} from the No Such Agency a few days ago. A hacker hid the password for his computer in this image. Can you find it for us?",
+    "value": 10
+}

@@ -1,0 +1,12 @@
+title: Captcha II
+value: 200
+text: |
+  It looks like the authors of the previous captcha website have streghtened
+  their captcha. The website is running [here](http://web.angstromctf.com:1343).
+  Again, please retrieve the flag.
+hint: Have fun.
+flag: actf{machine_learning_ftw_78B3DD}
+deploy:
+  type: docker
+  ports:
+    80: 1343

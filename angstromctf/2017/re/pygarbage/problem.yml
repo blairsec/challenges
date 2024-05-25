@@ -1,0 +1,11 @@
+title: Pygarbage
+value: 100
+text: |
+  Someone, namely me, thought it would be funny to obfuscate an encryption
+  program before giving it to you. Here is the [program]({{ obfuscated.py }})
+  and here is the [encrypted flag]({{ flag.txt }}). You're welcome.
+hint: I wonder what opy stands for?
+flag: actf{i_<3_python}
+files:
+  - obfuscated.py
+  - flag.txt

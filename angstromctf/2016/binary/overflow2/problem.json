@@ -1,0 +1,11 @@
+{
+    "files": [
+        "overflow2.c",
+		"overflow2"
+    ],
+    "flag": "youre_lucky_i_left_that_function_for_you",
+    "hint": "What is a return address, and where is it stored?",
+    "name": "Overflow 2",
+    "text": "Another program, another buffer overflow vulnerability! This time, though, there should be no way to get a shell! See if you can prove us wrong and get the flag on our shell sever. The binary for this problem is {{overflow2, here}}, and source code is {{overflow2.c, here}}.",
+    "value": 70
+}

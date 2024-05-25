@@ -1,0 +1,19 @@
+title: Signing Service
+value: 90
+text: |
+  We have found a server running that just signs whatever you send it. We also
+  found a [file]({{ flag.txt }}) that was encrypted using the same key as the
+  signing server uses. The key can be found [here]({{ pubkey.pem }}), the
+  server can be found [here]({{ oracle.py }}), and the server can be found at
+  `web.angstromctf.com:1347`.
+hint: Perhaps it is not a great idea to just sign whatever people send you.
+flag: actf{12_few_keys_used}
+files:
+  - oracle.py
+  - pubkey.pem
+  - flag.txt
+deploy:
+  type: docker
+  ports:
+    9000: 1347
+enabled: false

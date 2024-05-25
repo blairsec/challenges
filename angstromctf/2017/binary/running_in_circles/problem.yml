@@ -1,0 +1,14 @@
+title: Running in Circles
+value: 50
+text: |
+  Our data input program was vulnerable to overflows, so we fixed that by
+  implementing a circular buffer. Now it should be totally secure! See if you
+  can prove us wrong and get the flag on our shell sever. The problem is
+  available as: [binary]({{ run_circles }}) and [source]({{ run_circles.c }}).
+hint: Think about all the conditions we might be in when reading data.
+flag: actf{you_dont_just_go_around_a_circle_once}
+files:
+  - run_circles.c
+  - run_circles
+deploy:
+  type: shell

@@ -1,0 +1,11 @@
+{
+    "files": [
+        "repo.zip"
+    ],
+    "flag": "flag{git_is_actually_really_simple}",
+    "hint": "Where else can you search? If you need information about any git internals, refer to <a href='https://git-scm.com/book/en/v2'>Pro Git</a>.",
+    "name": "Dumb Git",
+    "text": "One of my friends put the flag in this git repository to give it to me, but I think something broke. Can you find it in {{repo.zip, this repository}}?",
+    "value": 80,
+    "enabled": false
+}

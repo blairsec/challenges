@@ -1,0 +1,10 @@
+{
+    "files": [
+        "transmission.txt"
+    ],
+    "flag": "actf{1_w4s_l0st_1n_tr4nsm1ss14n...}",
+    "hint": "Have fun with lattices.",
+    "name": "RSA Fun",
+    "text": "George was sending an encrypted message to me, as well as the RSA private key used to encrypt it. Somehow, part of the message got garbled up and then the {{transmission.txt,transmission}} suddenly cut off. Can you recover the message George was sending?",
+    "value": 240
+}

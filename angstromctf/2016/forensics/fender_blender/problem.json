@@ -1,0 +1,10 @@
+{
+    "files": [
+        "fender_blender.tar.gz"
+    ],
+    "flag": "flag{263,1337,3333,3999,4545}",
+    "hint": "The numbers are one-based.",
+    "name": "Fender Blender",
+    "text": "defund rendered 5 images from his {{fender_blender.tar.gz, blender}}. What are the frame numbers? There are 5000 frames in total. Submit the frame numbers in numerical order in the format <tt>flag{&lt;num1&gt;,&lt;num2&gt;,&lt;num3&gt;,&lt;num4&gt;,&lt;num5&gt;}</tt>.",
+    "value": 70
+}

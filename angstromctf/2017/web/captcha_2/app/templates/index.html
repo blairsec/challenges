@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>My Flag Retrieval 2</title>
+  </head>
+  <body>
+	  <form method="post" name="login">
+	  {{ form.hidden_tag() }}
+	  <img src={{picture}}>
+      <p>
+          Please enter the number of {{words}} in order, as a single five-digit number (i.e., 12345): {{ form.question1(size=10) }}<br>
+      </p>
+      <p>Please enter the 3-digit pin: {{ form.pin(size=10) }}</p>
+      <p><input type="submit" value="Sign In"></p>
+  </form>
+  <p> {{flag}} </p>
+  </body>
+</html>

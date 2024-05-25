@@ -1,0 +1,11 @@
+{
+    "files": [
+        "rop2libc.c",
+		"rop2libc"
+    ],
+    "flag": "oops_i_think_your_got_sprung_a_leak",
+    "hint": "See if you can leak a randomized address.",
+    "name": "rop2libc",
+    "text": "This vulnerable program has ASLR and a non-executable stack! Can you figure out how to bypass all those mitigations and get a shell? The program is on the shell server, with the binary provided {{rop2libc, here}} and source provided {{rop2libc.c, here}}.",
+    "value": 160
+}

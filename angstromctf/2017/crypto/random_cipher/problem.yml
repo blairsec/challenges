@@ -1,0 +1,17 @@
+title: Randomized Cipher
+value: 250
+text: |
+  It appears that the random SP network is back! Same concept as last year with
+  slight modifications to make it more interesting. Source code can be found
+  [here]({{ great_cipher.py }}). The flag will not be in actf{} format and will
+  just be the key, hex-enocded. The server is running at
+  `web.angstromctf.com:1346`.
+hint: All S-boxes are equal, but some are more equal than others.
+flag: 8385205B50AEF08088BFF6EA21D745D9AEFCFD61F824B966D6BDFE64C57A5C57
+files:
+  - great_cipher.py
+deploy:
+  type: docker
+  ports:
+    9000: 1346
+

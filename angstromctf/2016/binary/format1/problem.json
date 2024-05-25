@@ -1,0 +1,11 @@
+{
+    "files": [
+        "format1.c",
+		"format1"
+    ],
+    "flag": "whod_have_thought_format_strings_were_a_security_risk",
+    "hint": "You should probably find out how to use argument indices in format strings.",
+    "name": "Format 1",
+    "text": "This program is vulnerable to a format string attack! Try supplying a format string to overwrite a global variable and get a shell! You can exploit the binary on our shell server at <code>/problems/format1/</code>. Download the binary {{format1, here}}, and source code is available {{format1.c, here}}",
+    "value": 100
+}

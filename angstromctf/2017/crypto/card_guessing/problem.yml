@@ -1,0 +1,14 @@
+title: The Casino, Revisited
+value: 130
+text: |
+  &aring;ngstromCTF has decided to bring back their CTF mini-game, running at
+  `web.angstromctf.com:1349`. The code running the server has been released
+  [here]({{ card_guessing.py }}). Win the game and get the flag!
+hint: You still can guess the next card, can't you?
+flag: actf{still_not_not_not_predictable}
+files:
+  - card_guessing.py
+deploy:
+  type: docker
+  ports:
+    9000: 1349

@@ -1,0 +1,12 @@
+title: Captcha I
+value: 70
+text: |
+  As an avid fan of computer generated postmodernism, you have come across a
+  [website](http://web.angstromctf.com:1342) that uses computer art as a
+  captcha. Enter the correct pin number to get the flag.
+hint: Good thing the pin is so short.
+flag: actf{comp_abstract_art_2F239B}
+deploy:
+  type: docker
+  ports:
+    80: 1342

@@ -1,0 +1,8 @@
+title: Survey
+value: 5
+text: |
+  Take our <a href='https://goo.gl/forms/VeG5GFhhEkwNMppI2' target='_blank'>survey</a>
+  for free points.
+hint: Do you really need one?
+flag: actf{th4t_w4s_fun_l3t5_d0_1t_4g41n!}
+enabled: true

@@ -1,0 +1,13 @@
+title: Sed as a Service
+value: 40
+text: |
+  Since it's super hip to do everything as a service, we decided to make it
+  easy to do find and replace using our propriatery Sed&trade;. Our beta is
+  running at `web.angstromctf.com:3072`.
+hint: Read the title
+flag: actf{sed_is_actually_bad_or7joovi}
+deploy:
+  type: docker
+  ports:
+    3072: 3072
+enabled: false

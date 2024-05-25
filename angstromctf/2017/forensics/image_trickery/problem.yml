@@ -1,0 +1,9 @@
+title: Image Trickery
+value: 50
+text: |
+  What do Twitch emotes have to do with a CTF? No idea, but there's a flag in
+  [here]({{ mystery.png }}) somewhere. \*kappa\*
+hint: The colours in this image are just stunning.
+flag: actf{fa1L_F15H}
+files:
+  - mystery.png

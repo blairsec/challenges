@@ -1,0 +1,11 @@
+{
+    "files": [
+        "flag_locker.zip",
+        "flag_locker.pcapng"
+    ],
+    "flag": "actf{th1s_1s_why_y0u_d0nt_us3_m3rkl3_d4mg4rd!}",
+    "hint": "This service prevents replay attacks by requiring a timestamped password hash. If you're getting request timed out errors, make sure your computer is synchronized with <a href='http://www.time.gov' target='_blank'>NIST time</a> (check your system time settings). <i>Updated hint:</i> Weird stuff might be going on with encodings, but this problem is definitely solvable. Use Python 3 and download and test locally if you're having trouble.",
+    "name": "Flag Locker",
+    "text": "Chris was trying to hack our <a href='http://web.angstromctf.com:1340' target='_blank'>flag protection system</a>. He didn't get the flag, but he did manage to get this {{flag_locker.pcapng,PCAP}} of someone logging in, and a {{flag_locker.zip,redacted copy}} of the application source. Can you finish the job and get the flag?",
+    "value": 140
+}

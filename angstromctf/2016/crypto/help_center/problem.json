@@ -1,0 +1,10 @@
+{
+    "files": [
+        "server-redacted.py"
+    ],
+    "flag": "so_little_means_so_much",
+    "hint": "How can you take advantage of the fact that it tells you when invalid ciphertext was entered?",
+    "name": "Help Center",
+    "text": "We have uncovered a {{server-redacted.py, help server}} that accepts encrypted commands.  See if you can break in!  It's running at <code>web.angstromctf.com:1341</code>.",
+    "value": 170
+}

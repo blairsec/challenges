@@ -1,0 +1,10 @@
+{
+    "files": [
+        "yankovic.bmp"
+    ],
+    "flag": "its_all_about_the_penty_yums_baby",
+    "hint":  "Try finding this same image on Google and comparing it to this. <i>Updated hint:</i> Which bytes are the same and which are different?",
+    "name": "Yankovic",
+    "text": "What could be hiding behind {{yankovic.bmp, \"Weird Al\" Yankovic's sculpted visage}}? Find out and get the flag!",
+    "value": 60
+}

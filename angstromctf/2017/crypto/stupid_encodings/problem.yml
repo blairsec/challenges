@@ -1,0 +1,11 @@
+title: Descriptions
+value: 50
+text: |
+  We have found what appear to be [nonsensical phrases]({{ sentences.txt }}).
+  However, we believe that the author likes to hide secret messages using
+  nonsensical phrases about animals. Please help us find what the secret
+  message is.
+hint: The writer seems obsessed with categorizing words.
+flag: actf{gr8_encod1ng}
+files:
+  - sentences.txt

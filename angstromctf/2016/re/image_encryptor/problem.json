@@ -1,0 +1,11 @@
+{
+    "files": [
+        "flag.encrypted",
+        "encryptor.apk"
+    ],
+    "flag": "all_encryption_is_equal_but_some_are_more_equal_than_others",
+    "hint": "We think he used a PNG.",
+    "name": "Smartest Encryption",
+    "text": "Help! My friend encrypted his {{flag.encrypted, favourite image}} and forgot the password. He encrypted it with {{encryptor.apk, this software}}.",
+    "value": 70
+}

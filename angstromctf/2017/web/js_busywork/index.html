@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Definatley amazing password checker</title>
+    <script type="text/javascript" src="obst.js" id="obst"></script>
+    <script type="text/javascript" src="evil.js" id="evil"></script>
+    <script type="text/javascript" id="load">
+      window.onload = function() {
+        document.getElementById("submit").onclick = check;
+      }
+    </script>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <label for="password">Password:</label>
+      <input type="text" id="password"></input>
+      <button id="submit">Submit</button>
+      <div id="output"></div>
+    </body>
+  </html>

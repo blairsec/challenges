@@ -1,0 +1,10 @@
+{
+    "files": [
+        "ciphertext.txt"
+    ],
+    "flag": "actf{1_key_is_used_once}",
+    "hint": "The first step is to determine the key length.  The flag is a string, ASCII-encoded.",
+    "name": "What a Drag",
+    "text": "We have found a hex string that we believe is encrypted using a multiple time pad. Can you crack it given just {{ciphertext.txt, ciphertext}}?",
+    "value": 90
+}

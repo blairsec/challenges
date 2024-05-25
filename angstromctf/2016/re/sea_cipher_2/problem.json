@@ -1,0 +1,11 @@
+{
+    "files": [
+        "encrypted_book.txt",
+		"cipher"
+    ],
+    "flag": "nlrrkq_im_bad_at_writing_problems",
+    "hint": "Same thing as the first Sea Cipher, you just may have to dig a little deeper.",
+    "name": "Sea Cipher 2",
+    "text": "We found another message that seems to be encoded with the Sea Cipher method, but the key has been changed! We have the {{encrypted_book.txt, encrypted book}} and the {{cipher, encryption program}}, this time with the secret key redacted. Could you decrypt this for us, please?<br/>dnszyh_mx_xkx_jr_sllhnyh_tcqjhgiv",
+    "value": 170
+}

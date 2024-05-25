@@ -1,0 +1,11 @@
+{
+    "files": [
+        "shellcode.c",
+		"shellcode"
+    ],
+    "flag": "nonexecutable_stack_would_be_a_good_idea",
+    "hint": "It may be useful to learn the Linux syscall interface on x86.",
+    "name": "Shellcode",
+    "text": "Shellcode writing is a useful technique in binary exploitation. It involves making an executable payload and putting it somewhere to be run. See if you can use this technique to exploit our program, which executes whatever data you give it as code! The program is on the shell server at <code>/problems/shellcode/</code>, with the binary provided {{shellcode, here}} and source provided {{shellcode.c, here}}.",
+    "value": 60
+}

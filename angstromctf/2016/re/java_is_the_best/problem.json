@@ -1,0 +1,10 @@
+{
+    "files": [
+        "SuperSecure.class"
+    ],
+    "flag": "dont_use_java_if_you_wanna_hide_code",
+    "hint": "JD-GUI is a great Java decompiler.",
+    "name": "Java is the Best",
+    "text": "What kind of input makes {{SuperSecure.class, this program}} happy?",
+    "value": 50
+}

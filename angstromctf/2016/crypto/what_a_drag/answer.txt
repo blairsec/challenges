@@ -1,0 +1,2 @@
+key = 'ek6vt8pc7w'
+flag = '1_key_is_used_once'

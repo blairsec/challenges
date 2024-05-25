@@ -1,0 +1,7 @@
+{
+    "flag": "good_ole_fashioned_homemade_cookies",
+    "hint": "Developer tools should help.",
+    "name": "Not a Pastry",
+    "text": "We've discovered a <a href='http://web.angstromctf.com:1339' target='_blank'>mysterious website</a>.  Can you retrieve the flag?",
+    "value": 40
+}

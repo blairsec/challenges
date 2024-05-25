@@ -1,0 +1,9 @@
+title: Maxicode
+value: 120
+text: |
+  Defund intercepted a mysterious parcel and was able to scan
+  [this]({{ scanned.png }}) from the packaging.
+hint: No hint.
+flag: actf{h!t_the_bullseye}
+files:
+  - scanned.png

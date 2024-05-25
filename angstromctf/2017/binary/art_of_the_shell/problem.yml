@@ -1,0 +1,14 @@
+title: Art of the Shell
+value: 80
+text: |
+  Looks like this program has a buffer overflow vulnerability! But there's no
+  code inside that spawns a shell, so it must be secure! Get the flag anyway by
+  exploiting it on our shell sever. The problem is available as:
+  [binary]({{ art_of_the_shell }}) and [source]({{ art_of_the_shell.c }}).
+hint: If the code isn't in the program, better write it yourself.
+flag: actf{shouldve_used_the_nx_bit}
+files:
+  - art_of_the_shell.c
+  - art_of_the_shell
+deploy:
+  type: shell

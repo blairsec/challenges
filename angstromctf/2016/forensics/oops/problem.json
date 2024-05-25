@@ -1,0 +1,10 @@
+{
+    "files": [
+        "oops.img"
+    ],
+    "flag": "flag{waw_.Trashes_isnt_useless_after_all}",
+    "hint": "What happens when you delete a file?",
+    "name": "Whoops",
+    "text": "Whoops! I accidentally deleted the book I was reading from my flash drive!! I made an {{oops.img, image}} of the drive afterwards though! Can you find the book, and the flag in it?",
+    "value": 30
+}

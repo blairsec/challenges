@@ -1,0 +1,10 @@
+{
+    "files": [
+        "code.s"
+    ],
+    "flag": "1775929344",
+    "hint": "Assembly is lower-level than C, but the same ideas are still there. Try thinking of the operations in terms of their C equivalents.",
+    "name": "ASM Tracing",
+    "text": "Reading assembly language is one of the core skills for reverse engineering. Test your abilities by tracing {{code.s,this code}} and seeing what %eax contains by the end! Enter the result as an unsigned decimal integer.",
+    "value": 45
+}

@@ -1,0 +1,15 @@
+title: To-Do List
+value: 140
+text: |
+  Noah has written a cool new service to help people organize their todo lists!
+  Before he releases it to the public, you've been hired to do a pentest of the
+  app. Connect to `shell.angstromctf.com:9000` and find the flag he
+  placed there! Source code available [here]({{ todo_list.c }}) and binary [here]({{ todo_list }}).
+hint: You may find the libc binary on the shell server useful.
+flag: actf{oh_crap_we_actually_have_to_pay_you}
+files:
+  - todo_list
+  - todo_list.c
+enabled: true
+deploy:
+  type: shell

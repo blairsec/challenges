@@ -1,0 +1,7 @@
+{
+    "flag": "wtf_who_names_keyloggers_like_this",
+    "hint": "Have a look at the python program Volatility.",
+    "name": "volatile",
+    "text": "Help!  One of our machines has been compromised!  We have a <a href=\"https://mega.co.nz/#!Bg5B3DTD!dgaV9sklrXPop2w-BdE63t2FUIrUb_8fEL-HQqtMhaM\">memory dump</a>. Find the suspicious process.  The machine was running Windows XP service pack 2.",
+    "value": 90
+}

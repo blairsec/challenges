@@ -1,0 +1,9 @@
+title: Document
+value: 60
+text: |
+  Defund wrecked his [essay]({{ essay.docx }}) in a text editor to pretend that
+  his file got corrupted.
+hint: No hint.
+flag: actf{too_bad_for_zip_recovery}
+files:
+  - essay.docx

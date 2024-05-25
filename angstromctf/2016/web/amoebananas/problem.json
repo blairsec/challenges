@@ -1,0 +1,10 @@
+{
+    "files": [
+        "index.html"
+    ],
+    "flag": "pseudopods_are_da_bomb",
+    "hint": "HTML is the source of all your problems.",
+    "name": "Amoebananas!",
+    "text": "The <a href='http://web.angstromctf.com:1337' target='_blank'>amoeba</a> is a fascinating creature.",
+    "value": 20
+}

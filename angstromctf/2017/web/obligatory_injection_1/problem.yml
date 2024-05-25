@@ -1,0 +1,8 @@
+title: Hard Choices
+value: 40
+text: |
+  Wow, we have found a suspicious website. The website is running [here](http://web.angstromctf.com:1342).
+  Log in to retrieve the flag.
+hint: The admin information is stored on a SQL database.
+flag: actf{3v3ry_d4mn_ctf_h4s_th1s_pr0bl3m}
+enabled: false

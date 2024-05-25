@@ -1,0 +1,11 @@
+{
+    "files": [
+        "endian.c",
+        "endian"
+    ],
+    "flag": "a_doomsday_device_is_only_useful_if_everyone_knows_about_it",
+    "hint": "Each character is a byte long, and integers are 4 bytes long.",
+    "name": "Endian of the World",
+    "text": "The end of the world is nigh! Dr. Doomsday has created an evil contraption to destroy the planet, and only a single password can stop it! We were able to recover the source code for the password check. Find the shortest password that will stop Dr. Doomsday's machine and save the world! The program is available on the shell server at <code>/problems/endian_of_the_world/</code>, and the {{endian, binary}} and {{endian.c, source}} are provided.",
+    "value": 40
+}

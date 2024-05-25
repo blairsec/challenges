@@ -1,0 +1,10 @@
+{
+    "files": [
+        "owned.pcap"
+    ],
+    "flag": "new_wordpress_old_plugin",
+    "hint": "Wireshark's \"Follow TCP Stream\" feature may make the conversation a little easier to read.",
+    "name": "metasploitable",
+    "text": "Our Wordpress blog has been hacked! Fortunately, the {{owned.pcap, network capture}} from our intrusion detection system may provide some clues. Can you help us figure out what the hacker did?",
+    "value": 120
+}

@@ -1,0 +1,11 @@
+{
+    "files": [
+        "encrypted_book.txt",
+		"cipher"
+    ],
+    "flag": "lwiwherman_rqcall_zvme_ylishmael",
+    "hint": "Reverse engineer the encryption method, then find the vulnerability.",
+    "name": "Sea Cipher",
+    "text": "We have recovered an {{encrypted_book.txt, encrypted book}} and the {{cipher, encryption program}} used to secure it. Could you decrypt this for us, please?<br/>teusbfslkt_kwruzo_sjsa_kursmwfsl",
+    "value": 100
+}

@@ -1,0 +1,17 @@
+title: No libc for You
+value: 150
+text: |
+  Even ASLR and NX can't seem to stop you from exploiting all these buffer
+  overflows. Rather than remove the buffer overflows, we decided to use static
+  linking so you can't access libc anymore! Can you get the flag with no
+  system() to help you out? Go ahead and give it a try on the shell server. The
+  problem is available as: [binary]({{ nolibc4u }}) and
+  [source]({{ nolibc4u.c }}).
+hint: How is file I/O done with static linking?
+flag: actf{ya_gotta_luv3_r0p_ch4in5}
+files:
+  - nolibc4u.c
+  - nolibc4u
+enabled: true
+deploy:
+  type: shell

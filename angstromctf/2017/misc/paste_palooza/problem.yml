@@ -1,0 +1,18 @@
+title: paste palooza
+author: defund
+value: 90
+text: |
+  Defund made his own version of pastebin in a fancy programming language! A
+  true believer in open source projects, he uploaded some of his
+  [code]({{ nameaccess.ex }}). Retrieve the file `flag` from his pastes. defund
+  also included a sample file, `paste.txt`, in the pastes. The service is
+  running at `web.angstromctf.com:3001`.
+hint: Elixir is bad.
+flag: actf{elixir_utf8_string_length_plz}
+files:
+  - nameaccess.ex
+deploy:
+  type: docker
+  ports:
+    3001: 3001
+enabled: false

@@ -1,0 +1,11 @@
+{
+    "files": [
+        "index.html",
+        "admin_7de7b2fed84fd29656dff73bc98daef391b0480efdb0f2e3034e7598b5a412ce.html"
+    ],
+    "flag": "all_javascript_is_open",
+    "hint": "I wonder where your browser goes after you click login...",
+    "name": "SuperSecure&trade;",
+    "text": "Jason made a new <a href='http://web.angstromctf.com:1338' target='_blank'>SuperSecure&trade; website</a>, but lost his password. It's displayed on the admin page. Can you login?",
+    "value": 30
+}

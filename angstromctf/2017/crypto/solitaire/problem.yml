@@ -1,0 +1,14 @@
+title: War Games
+value: 80
+text: |
+  We have found a Peculiar casinO that seems to oNly have one game: war. The
+  service adverTises that It is as Fair as lifE so I would not get my hopes up
+  at winning this eXchange. The server is running at
+  `web.angstromctf.com:1348`. The flag is all lower case letters.
+hint: Too bad you alway lose in war.
+flag: actf{wowistheanswerright}
+deploy:
+  type: docker
+  ports:
+    9000: 1348
+enabled: true

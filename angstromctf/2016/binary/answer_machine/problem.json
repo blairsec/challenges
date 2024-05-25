@@ -1,0 +1,11 @@
+{
+    "files": [
+        "answer_machine.c",
+        "answer_machine"
+    ],
+    "flag": "coulda_just_used_strftime_instead_amirite",
+    "hint": "ASLR means the stack and libc base are randomized, but the executable itself isn't.",
+    "name": "Answer Machine",
+    "text": "This answering machine program has ASLR enabled and a non-executable stack! Can you leave a message that bypasses them and gets the flag? Find it on the shell server at <code>/problems/answer_machine/</code>, and download the {{answer_machine, binary}} and {{answer_machine.c, source}}.",
+    "value": 110
+}

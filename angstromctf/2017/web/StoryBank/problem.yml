@@ -1,0 +1,13 @@
+title: StoryBank
+value: 90
+hint: |
+  Shucks, I really wanted to know more about those restricted stories...
+text: |
+  Once upon a time, in the mythical world of 2017, the angstromCTF devs wanted
+  to create a [web problem](http://web.angstromctf.com:1344/).
+flag: angstromctf{th3_flag_lord_was_actually_just_a_myth}
+deploy:
+  type: docker
+  ports:
+    80: 1344
+enabled: false

@@ -1,0 +1,8 @@
+title: JS Busywork
+value: 60
+text: |
+  Noah sent me [this website](http://web.angstromctf.com:1340/js_busywork/index.html)
+  that stumped him.
+hint: There's a better way.
+flag: you_could_have_just_hooked_eval
+enabled: false

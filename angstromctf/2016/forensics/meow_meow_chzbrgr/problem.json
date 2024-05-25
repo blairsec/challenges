@@ -1,0 +1,10 @@
+{
+    "files": [
+        "meow"
+    ],
+    "flag": "angstromctf{120x29y_dmg_no_haz_mai_chezburger}",
+    "hint": "Look at the headers, they may tell you something.",
+    "name": "Wher iz mai cheezburgr",
+    "text": "Halp! I lost my cheezburger and I can't find it! It's in {{meow, this file}} somewere, can you be finds it? K Thx m8 much appreciat.",
+    "value": 80
+}

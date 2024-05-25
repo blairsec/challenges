@@ -1,0 +1,9 @@
+title: USB Encryption
+value: 30
+text: |
+  We've made a [copy]({{ DEFUND.dmg }}) of defund's flash drive, which seems to
+  be protected by a usb encryption software. Retrieve the flag.
+hint: Not really a hint, but this is an actual software.
+flag: actf{not_quite_usb_encryption}
+files:
+  - DEFUND.dmg

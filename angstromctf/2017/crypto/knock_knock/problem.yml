@@ -1,0 +1,9 @@
+title: Knock Knock
+value: 30
+text: |
+  You have come across a strange [audio recording]({{ sounds.mp3 }}). Can you
+  recover the flag? **Note**: The flag is not in the actf{} format.
+hint: Google is your friend.
+flag: helpmeplease
+files:
+  - sounds.mp3

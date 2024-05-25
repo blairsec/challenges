@@ -1,0 +1,10 @@
+{
+     "files": [
+         "headsup.pdf"
+     ],
+     "flag": "heads_shoulders_knees_and_toes",
+     "hint": "No hint for you this time >_<",
+     "name": "Headsup",
+     "text": "We're having trouble opening this {{headsup.pdf, PDF}}. Can you figure out what's wrong with it?",
+     "value": 30
+}

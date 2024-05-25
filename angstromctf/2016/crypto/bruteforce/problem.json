@@ -1,0 +1,7 @@
+{
+    "flag": "randomwords",
+    "hint": "Use a rainbow table attack on the hash.  The Internet is your friend.",
+    "name": "Brute Force",
+    "text": "We have found the hex string \"c8db257e50bc35bf721b11d333fe9fd6\", which we believe to be a MD5 hash.",
+    "value": 40
+}

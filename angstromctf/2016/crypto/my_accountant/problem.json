@@ -1,0 +1,12 @@
+{
+    "files": [
+        "account_encryption.py",
+        "ciphertext.txt",
+        "balance.txt"
+    ],
+    "flag": "5F6E7831B0A4",
+    "hint": "How necessary is the third round?",
+    "name": "My Accountant",
+    "text": "While searching through some old files we found {{ciphertext.txt, accounting sheets}} that could point to nefarious business. However, we only happen to have {{balance.txt, one page}} in plaintext. Could you recover the key? It will be a hex-encoded string. You can access the program they used for encryption {{account_encryption.py, here}}.",
+    "value": 160
+}

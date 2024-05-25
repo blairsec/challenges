@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Image Encryptor</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="button_encrypt_name">Encrypt</string>
+    <string name="button_decrypt_name">Decrypt</string>
+
+    <string name="title_activity_encrypt_image">Encrypt Image</string>
+    <string name="password_text">Password</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_decrypt_image">Decrypt Image</string>
+    <string name="encrypt_select_file">Select File</string>
+    <string name="encrypt_perform_action">Encrypt</string>
+    <string name="default_filename_uri">No file selected</string>
+</resources>

