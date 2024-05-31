@@ -1,0 +1,1 @@
+Use steghide to extract the data. Decode base58.

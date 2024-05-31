@@ -1,0 +1,16 @@
+{
+	"name": "evil-flower",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy src/index.ts",
+		"dev": "wrangler dev",
+		"start": "wrangler dev"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20231016.0",
+		"discord-api-types": "^0.37.85",
+		"typescript": "^5.0.4",
+		"wrangler": "^3.0.0"
+	}
+}

@@ -1,0 +1,20 @@
+name: og
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: JAIL_PORT
+          value: "8080"
+        - name: JAIL_MEM
+          value: "20M"
+        - name: JAIL_PIDS
+          value: "10"
+      security_context:
+        privileged: true
+expose:
+  - from: 8080
+    to: 31312

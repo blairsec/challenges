@@ -1,0 +1,1 @@
+Use exiftool to find the coordinates. The road is Chincoteague Road.

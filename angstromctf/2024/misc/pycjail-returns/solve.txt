@@ -1,0 +1,3 @@
+6f01a800a800a800a8001700a800a800a8004e00
+breakpoint
+p open("flag.txt").read()

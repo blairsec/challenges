@@ -1,0 +1,3 @@
+name = "evil-flower"
+main = "./src/index.ts"
+compatibility_date = "2022-10-10"

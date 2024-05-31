@@ -1,0 +1,22 @@
+name: rabin
+replicas: 3
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 5000
+      env:
+        - name: JAIL_MEM
+          value: "50M"
+        - name: JAIL_CPU
+          value: "500"
+        - name: JAIL_PIDS
+          value: "10"
+        - name: JAIL_TIME
+          value: "300"
+      security_context:
+        privileged: true
+expose:
+  - from: 5000
+    to: 31300

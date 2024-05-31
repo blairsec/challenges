@@ -1,0 +1,16 @@
+name: tickler
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 3000
+      env:
+        - name: ADMIN
+          value: eb7b2a7d01beec661d32945763f972f4
+        - name: FLAG
+          value: "actf{c4d8f38d1195fda4b7e025f40e16942e}"
+http:
+  - port: 3000
+    subdomain: tickler

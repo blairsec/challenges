@@ -1,0 +1,16 @@
+name: wwwwwwwwaas
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 21111
+      env:
+        - name: SECRET_KEY
+          value: fc75fc18c81581358238072fab4d37fb6b874890bc912cf2229cdf3ebce179b8
+    security_context:
+      privileged: true
+http:
+  - port: 21111
+    subdomain: wwwwwwwwaas

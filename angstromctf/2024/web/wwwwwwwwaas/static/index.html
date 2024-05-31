@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			let counter = 0;
+			let s = 16;
+			onload = function() {
+				setInterval(function() {
+					let r = document.querySelector(":root");
+					r.style.setProperty('--shadow-x',[-s,s,-s,s,s,-s,s,-s][counter%8]+'px');
+					r.style.setProperty('--shadow-y',[s,s,s,s,-s,-s,-s,-s][counter%8]+'px');
+					r.style.setProperty('--glow-blur',8*(1+Math.sin(counter/5))+'px');
+					r.style.setProperty('--glow-color',`hsl(${(counter%20 - (counter%4)/2)*15},100%,50%)`);
+					counter++;
+				},250);
+			}
+			
+		</script>
+		<style>
+			:root {
+				--glow-color: hsl(0,100%,50%);
+				--glow-blur: 8px;
+				--shadow-x: 2px;
+				--shadow-y: 2px;
+			}
+			html {
+				min-height: 100%;
+				background: linear-gradient(210deg,limegreen,orange);
+				font-family: papyrus;
+				text-align: center;
+				display:flex;
+				align-items: center;
+				justify-content: center;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			input {
+				font-family: comic sans ms;
+				color: var(--glow-color);
+				box-shadow: var(--shadow-x) var(--shadow-y) var(--glow-blur) var(--glow-color);
+			}
+			input {
+				background: linear-gradient(to right,skyblue,black);
+				border: 3px dashed purple;
+				box-shadow: var(--shadow-x) var(--shadow-y) var(--glow-blur) var(--glow-color);
+				transition: transform 3s ease;
+			}
+			input:hover {
+				transform: scale(0.6);
+			}
+			input:active {
+				background: red;
+				filter: blur(15px);
+			}
+			h1, h2, form {
+				color: rgba(0, 0, 0, 0);
+				text-shadow: var(--shadow-x) var(--shadow-y) var(--glow-blur) var(--glow-color);
+			}
+			h1 {font-size: 64px; filter: hue-rotate(50deg);}
+			h2 {font-size: 48px; filter: hue-rotate(120deg);}
+			form, input {
+				font-size: 36px;
+			}
+			body {
+				width: fit-content;
+				transition: transform 2s ease;
+				border: 24px dotted magenta;
+				border-radius: 100px;
+			}
+			body:hover {
+				transform: rotate(700deg);
+			}
+			span.cap {
+				color: lime;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Welcome to the <span class="cap">W</span>onderful <span class="cap">W</span>icked <span class="cap">W</span>rathful <span class="cap">W</span>iretapping <span class="cap">W</span>holesale <span class="cap">W</span>orld <span class="cap">W</span>ide <span class="cap">W</span>atermark <span class="cap">a</span>s <span class="cap">a</span> <span class="cap">S</span>ervice!</h1>
+		<h2>We can search for the <span style="color:blue">flag</span>, but only if you're an admin!</h2>
+		<form method='get' action='/search'>
+			<label>Query: <input name='q'></label>
+			<input type='submit' value="Search!">
+		</form>
+		<p id="out"></p>
+	</body>
+</html>

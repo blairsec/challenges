@@ -1,0 +1,11 @@
+name: winds
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 8000
+http:
+  - port: 8000
+    subdomain: winds

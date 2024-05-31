@@ -1,0 +1,11 @@
+name: markdown
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 3000
+http:
+  - port: 3000
+    subdomain: markdown

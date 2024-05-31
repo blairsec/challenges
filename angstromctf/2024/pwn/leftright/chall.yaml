@@ -1,0 +1,22 @@
+name: leftright
+replicas: 2
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: JAIL_PORT
+          value: "8080"
+        - name: JAIL_TIME
+          value: "600"
+        - name: JAIL_MEM
+          value: "60M"
+        - name: JAIL_CPU
+          value: "500"
+      security_context:
+        privileged: true
+expose:
+  - from: 8080
+    to: 31324

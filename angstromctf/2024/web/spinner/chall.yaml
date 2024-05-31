@@ -1,0 +1,14 @@
+name: spinner
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 3000
+      env:
+        - name: FLAG
+          value: "actf{b152d497db04fcb1fdf6f3bb64522d5e}"
+http:
+  - port: 3000
+    subdomain: spinner

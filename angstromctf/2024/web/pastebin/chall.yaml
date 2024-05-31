@@ -1,0 +1,15 @@
+name: pastebin
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 3000
+      env:
+        - name: FLAG
+          value: "actf{47fd1d17b0c1121da0fc9d2d0c4fc109}"
+http:
+  - port: 3000
+    subdomain: pastebin
+

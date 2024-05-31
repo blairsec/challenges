@@ -1,0 +1,16 @@
+name: exam
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 8080
+      env:
+        - name: JAIL_PORT
+          value: "8080"
+      security_context:
+        privileged: true
+expose:
+  - from: 8080
+    to: 31322

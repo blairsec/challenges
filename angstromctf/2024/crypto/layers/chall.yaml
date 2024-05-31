@@ -1,0 +1,16 @@
+name: layers
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 5000
+      env:
+        - name: JAIL_ENV_FLAG
+          value: "actf{593a7043ca58fcac7ec972e3dcf01263}"
+      security_context:
+        privileged: true
+expose:
+  - from: 5000
+    to: 31398

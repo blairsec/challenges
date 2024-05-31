@@ -1,0 +1,14 @@
+name: store
+replicas: 1
+containers:
+  - path: .
+    name: app
+    kube:
+      ports:
+        - container_port: 3000
+      env:
+        - name: FLAG
+          value: "actf{37619bbd0b81c257b70013fa1572f4ed}"
+http:
+  - port: 3000
+    subdomain: store

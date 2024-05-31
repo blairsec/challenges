@@ -1,0 +1,22 @@
+{
+    "type": "module",
+    "scripts": {
+        "watch": "concurrently 'npm run watch-server' 'npm run watch-client'",
+        "watch-server": "tsx watch --clear-screen=false server.ts",
+        "watch-client": "npm run build -- --watch",
+        "build-client": "esbuild client.ts --outdir=public/build --bundle",
+        "build-server": "esbuild server.ts --outfile=server.js --platform=node"
+    },
+    "dependencies": {
+        "@trpc/client": "^11.0.0-rc.374",
+        "@trpc/server": "^11.0.0-rc.374",
+        "@types/node": "^20.12.12",
+        "concurrently": "^8.2.2",
+        "esbuild": "^0.21.3",
+        "express": "^4.19.2",
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "tsx": "^4.10.5"
+    }
+}
