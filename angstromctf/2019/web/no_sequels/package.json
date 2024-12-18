@@ -12,7 +12,7 @@
     "express": "~4.15.2",
     "express-jwt": "^5.3.1",
     "jade": "~1.11.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^2.2.25",
     "monk": "^4.0.0",
     "morgan": "~1.8.1",
